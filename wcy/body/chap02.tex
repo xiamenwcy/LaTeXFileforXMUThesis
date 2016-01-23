@@ -1,0 +1,130 @@
+\chapter{插图}
+\echapter{\ref{chap2}\enskip Figure}
+\label{chap2}
+本章主要介绍插图的方法.
+首先建议大家使用eps格式的图片.其次，如果使用jpg,png格式的图片，则
+先用ebb生成对应的BoundingBox文件,
+打开后,内容如下:
+\begin{verbatim}
+%%Title:test.jpg
+%%Creator: ebb Version 0.5.2
+%%BoundingBox: 0 0 438 340
+%%CreationDate: Sun Oct 25 19:51:22 2008
+\end{verbatim}
+然后我们需要拷贝里面的'0 0 438 340'放入插图环境中.\par
+\begin{verbatim}
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.3\textwidth,bb=0 0 438 340]{flower_6.png}
+\caption{调节$\lambda$生成蝴蝶结图案}
+ \label{chap:curfig6}
+\end{figure}
+\end{verbatim}
+注意: 通常ebb程序在:\begin{verbatim} *:\CTEX\MiKTeX\miktex\bin \end{verbatim}中,使用时直接用ebb打开图片，即可生成对应的BoundingBox.
+效果:\par
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.3\textwidth,bb=0 0 438 340]{figures/flower/flower_6.png}
+\caption{调节$\lambda$生成蝴蝶结图案}
+ \label{chap:curfig6}
+\end{figure}
+\section{多幅图片的生成方式}
+\esection{More pictures}
+\label{chap3:ji1}
+方法1:\\
+\begin{verbatim}
+\begin{figure*}[!ht]
+\centering
+   \subfigure[2阶基函数]
+   {
+   \includegraphics[width=0.27\textwidth,bb=0 0 297 230]{base2.png}
+   }
+    \hspace{0.0002\textwidth}
+  \subfigure[4阶基函数]
+  {
+  \includegraphics[width=0.27\textwidth,bb=0 0 297 230]{base4.png}
+   }
+    \hspace{0.0002\textwidth}
+  \subfigure[6阶基函数]
+  {
+    \includegraphics[width=0.27\textwidth,bb=0 0 297 230]{base6.png}
+ }
+\caption{基函数的拟对称性,其中$\alpha=0.5,\beta=0.5,\lambda=-0.5$}
+ \label{fig1}
+  \end{figure*}
+\end{verbatim}
+效果:\par
+\begin{figure*}[!ht]
+\centering
+   \subfigure[2阶基函数]
+   {
+   \includegraphics[width=0.27\textwidth,bb=0 0 297 230]{figures/base2.png}
+   }
+    \hspace{0.0002\textwidth}
+  \subfigure[4阶基函数]
+  {
+  \includegraphics[width=0.27\textwidth,bb=0 0 297 230]{figures/base4.png}
+   }
+    \hspace{0.0002\textwidth}
+  \subfigure[6阶基函数]
+  {
+    \includegraphics[width=0.27\textwidth,bb=0 0 297 230]{figures/base6.png}
+ }
+\caption{基函数的拟对称性,其中$\alpha=0.5,\beta=0.5,\lambda=-0.5$}
+ \label{fig1}
+  \end{figure*}
+ 方法2:\\
+ \begin{verbatim}
+\begin{figure}[!ht]\centering
+\includegraphics[width=.3\textwidth,bb=0 0 395 329]{lambda.png}
+\includegraphics[width=.3\textwidth,bb=0 0 395 329]{alpha.png}
+\includegraphics[width=.3\textwidth,bb=0 0 395 329]{beta.png}
+\caption{$\lambda,\alpha,\beta$对6次基函数的影响}
+ \label{fig2}
+\end{figure}
+\end{verbatim}
+效果:\par
+\begin{figure}[!ht]\centering
+\includegraphics[width=.3\textwidth,bb=0 0 395 329]{figures/lambda.png}
+\includegraphics[width=.3\textwidth,bb=0 0 395 329]{figures/alpha.png}
+\includegraphics[width=.3\textwidth,bb=0 0 395 329]{figures/beta.png}
+\caption{$\lambda,\alpha,\beta$对6次基函数的影响}
+ \label{fig2}
+\end{figure}
+方法3:
+\begin{verbatim}
+\begin{figure}
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=2.2in,bb=0 0 340 268]{alpha_flower.png}
+\caption{fig1}
+\label{fig:side:a}
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=2.2in,bb=0 0 332 260]{beta_flower.png}
+\caption{fig2}
+\label{fig:side:b}
+\end{minipage}
+\end{figure}
+\end{verbatim}
+效果:\par
+\begin{figure}
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=2.2in,bb=0 0 340 268]{figures/flower/alpha_flower.png}
+\caption{fig1}
+\label{fig:side:a}
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=2.2in,bb=0 0 332 260]{figures/flower/beta_flower.png}
+\caption{fig2}
+\label{fig:side:b}
+\end{minipage}
+\end{figure}
+以上插图的不同之处在于:\\
+方法1:有许多子图片组合生成一幅带序号的图片,子图片序号为(a)、(b)、(c);\\
+方法2:有许多子图片组合生成一幅带序号的图片,子图片无序号;\\
+方法3:两个子图片合并在一起，序号独立,无大序号。

@@ -1,0 +1,20 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{本研究用到的统计计算方法}
+
+%------------------------------------------------------------
+\section*{经验分布}
+在给定一元观测序列\Bset[i]{n}{y_{(i)} }，其经验分布函数(empirical cumulative probability function, ECDF)为
+\begin{equation}
+   P_n(y) = \frac{ \lB y_i| y_i\leq y \rB }{ n }
+\end{equation}
+
+对于实数轴上的随机变量，其ECDF为
+\begin{equation}
+P_n(y)
+   = \frac 1n \sum \mathrm{I}_{(-\infty , y]}(y_i)
+   = \frac 1n \sum \mathrm{I}(y_i\leq y)
+\end{equation}
+其中，$\mathrm{I}()$为指示函数。
+
+
+%------------------------------------------------------------

@@ -1,0 +1,313 @@
+
+\chapter{文档模板}
+\label{chap1}
+
+\section{样本}
+\label{chap1:sample}
+
+这一节是样本集合
+
+\subsection{插图样本}
+\label{chap1:sample:figure}
+
+这是一个插图样本
+
+\begin{figure}
+\centering
+\includegraphics[height=2.8in,bb=0 0 1038 573]{figures/chap3_compress.jpg}
+\caption{B样条采样技术压缩数据} \label{fig:chp3:compress}
+\end{figure}
+
+如图\ref{fig:chap1:learning}所示：
+
+\subsection{表格样本}
+
+这是一个表格样本(如表~\ref{tab:example}所示)。
+
+\begin{table}[htb!]
+\caption{表格样本}
+\centerline{\begin{tabular}{|c|c|}
+\hline {\hei 表格样本} & {\hei 表格样本}\\
+\hline {短文字示例 } & {长文字示例长文字示例长文字示例长文字示例长文字示例}\\
+\hline\end{tabular}}
+\label{tab:example}
+\end{table}
+
+对于时间$t_0 ,t_1 , \cdots
+,t_n$上的面板数据$\mathbf{X}$，如表格\ref{tab:panel}所示：
+
+\begin{table}[htp!]
+\centering
+\begin{minipage}[t]{0.8\textwidth}
+\caption{时间$t_0 ,t_1 , \cdots ,t_n$上的面板数 }
+\label{tab:panel}
+\begin{tabular}{|c|c|c|c|c|c|}
+  \hline
+  {时间} & {第0维序列} & {第1维序列} & {$\cdots$} & {第m维序列} & {行向量} \\
+  \hline
+  {$t_0$} & {$x_{0t_0}$} & {$x_{1t_0}$} & {$\cdots$} & {$x_{mt_0}$} & {${\bf{X}}_{.0}$} \\
+  \hline
+  {$t_1$} & {$x_{0t_1}$} & {$x_{1t_1}$} & {$\cdots$} & {$x_{mt_1}$} & {${\bf{X}}_{.1}$} \\
+  \hline
+  {$\vdots$} & {$\vdots$} & {$\vdots$} & {$\ddots$} & {$\vdots$} & {$\vdots$} \\
+  \hline
+  {$t_n$} & {$x_{0t_n}$} & {$x_{1t_n}$} & {$\cdots$} & {$x_{mt_n}$} & {${\bf{X}}_{.2}$} \\
+  \hline
+  {列向量} & {${\bf{X}}_{0.}$} & {${\bf{X}}_{1.}$} & {$\cdots$} & {${\bf{X}}_{m.}$} & {$\mathbf{X}$} \\
+  \hline
+\end{tabular}\\
+\footnotesize {\xiaowu \song 资料来源：}\\
+\end{minipage}
+\end{table}
+
+\section{列表示例}
+\label{chap2:update}
+
+\begin{denselist}[]
+    \item {修改为厦门大学论文模版，按学校规定调整版面}
+    \item {修改版芯位置，使其居中}
+    \item {修改列表间距}
+    \item {增加表格中中文换行
+        \begin{denselist}[]
+        \item {修改为厦门大学论文模版，按学校规定调整版面}
+        \item {修改版芯位置，使其居中}
+        \item {修改列表间距}
+        \item {增加表格中中文换行}
+        \end{denselist}
+        }
+\end{denselist}
+以上是列表例子
+\begin{itemize}
+    \item {修改为厦门大学论文模版，按学校规定调整版面}
+    \item {修改版芯位置，使其居中}
+    \item {修改列表间距}
+    \item {增加表格中中文换行
+        \begin{itemize}
+        \item {修改为厦门大学论文模版，按学校规定调整版面}
+        \item {修改版芯位置，使其居中}
+        \item {修改列表间距}
+        \item {增加表格中中文换行}
+        \end{itemize}
+    }
+\end{itemize}
+例子2
+\begin{description}
+    \item[a] {修改为厦门大学论文模版，按学校规定调整版面}
+    \item[1] {修改版芯位置，使其居中}
+    \item[A]{修改列表间距}
+    \item[.] {增加表格中中文换行}
+\end{description}
+例子3
+\begin{enumerate}
+    \item {修改为厦门大学论文模版，按学校规定调整版面}
+    \item {修改版芯位置，使其居中}
+    \item {修改列表间距}
+    \item {增加表格中中文换行
+        \begin{enumerate}
+        \item {修改为厦门大学论文模版，按学校规定调整版面}
+        \item {修改版芯位置，使其居中}
+        \item {修改列表间距}
+        \item {增加表格中中文换行}
+        \end{enumerate}
+    }
+\end{enumerate}
+
+
+\subsection{公式样本}
+\label{chap1:sample:equation}
+
+贝叶斯公式如下：
+\begin{equation}
+ p(y|\mathbf{x}) = \frac{p(\mathbf{x},y)}{p(\mathbf{x})}=
+\frac{p(\mathbf{x}|y)p(y)}{p(\mathbf{x})} \label{equ:chap1:bayes}
+\end{equation}
+
+\noindent式(\ref{equ:chap1:bayes})中$p(y|\mathbf{x})$为后验；$p(\mathbf{x})$为先验
+；分母$p(\mathbf{x})$为归一化因子。
+
+\begin{equation}\label{equ:chp4:paraequm }
+\left\{\begin{array}{l}
+  x_{jt_0 }  = f_j (u_0 ) + \varepsilon _{j0} \\
+  x_{jt_1 }  = f_j (u_1 ) + \varepsilon _{j1} \\
+    \cdots\\
+  x_{jt_n }  = f_j (u_n ) + \varepsilon _{jn}
+  \end{array}
+  \quad j = 0,1, \cdots ,m
+  \right.
+\end{equation}
+
+数据参数化。我们可以将时间或者观察次数$t_0 ,t_1 , \cdots
+,t_n$进行参数化
+\begin{equation}
+\left\{\begin{array}{ll}
+  u_{0}^{'}  = 0 \\
+  u_{i}^{'}  = u_{i - 1}^{'}  + \left| \Delta {t_{i - 1}} \right| \quad i=1,\cdots,n
+  \end{array}\right.
+  \label{equ:chap4:parp}
+\end{equation}
+
+其中$\Delta
+{t_{i-1}}={t_i-{t_{i-1}}}$，这个参数化方法使时间成为节点，具有较强的经济学解释。
+
+$$N(y) = {1 \over {\sqrt {2\pi } }}\int_{ - \infty }^y {{e^{ - {\mu ^2}/2}}d\mu } $$
+
+根据M-M理论，公司资产价值等于债券价值加上股东权益的价值，如公式\ref{zzcjz}所示。
+\begin{equation}\label{zzcjz}
+    \begin{split}
+    {D_0}(V,T) &= F{e^{ - rT}} - {E_t}(P)\\
+    & = F{e^{ - rT}} - [ - {V_0}N( - {d_1}) + F{e^{ - rT}}N( - {d_2})] \\
+    &= {V_0}N( - {d_1}) + F{e^{ - rT}}N({d_2})
+    \end{split}
+\end{equation}
+
+\lemma{假设$k < I$
+ 个违约对手在时间$t$ 处违约，如果$C$ 可微，$\tau $
+ 的条件分布函数为：
+\begin{equation}\label{4-29}
+    \begin{split}
+    & Q\left[ {\tau  \ge T|{{\tilde {\mathcal {H}}}_t} \wedge \left\{ {{\tau _i} = {t_i}1 \le i \le k} \right\} \wedge \left\{ {{\tau _i} > tk \le i \le I} \right\}} \right]\\
+        &={ {{{{{\partial ^k}} \over {\partial {x_1} \cdots \partial {x_k}}}C\left( {{\gamma _1}\left( {{t_1}} \right), \cdots ,{\gamma _k}\left( {{t_k}} \right),{\gamma _{k + 1}}\left( {{T_{k + 1}}} \right),
+  \cdots ,{\gamma _I}\left( {{T_I}} \right)} \right)} \over {{{{\partial ^k}} \over {\partial {x_1} \cdots \partial {x_k}}}C\left( {{\gamma _1}\left( {{t_1}} \right), \cdots ,{\gamma _k}\left( {{t_k}} \right),
+  {\gamma _{k + 1}}\left( t \right), \cdots ,{\gamma _I}\left( t \right)} \right)}}}
+    \end{split}
+\end{equation}
+
+且 $i \le k$，有${T_i} > {\tau _i}$。
+\begin{equation}\label{4-30}
+    \begin{split}
+    &Q\left[ {\tau  \ge T|{{\mathcal {H}}_t} \wedge \left\{ {{\tau _i} = {t_i}1 \le i \le k} \right\} \wedge \left\{ {{\tau _i} > tk \le i \le I} \right\}} \right]\\
+    &= {{{{\rm{E}}^{\rm{Q}}}\left[ {{{{\partial ^k}} \over {\partial {x_1} \cdots \partial {x_k}}}C\left( {{\gamma _1}\left( {{t_1}} \right), \cdots ,{\gamma _k}\left( {{t_k}} \right),{\gamma _{k + 1}}\left( {{T_{k + 1}}} \right), \cdots ,{\gamma _I}\left( {{T_I}} \right)} \right)|{{\mathcal {H}}_t}} \right]} \over {{{{\partial ^k}} \over {\partial {x_1} \cdots \partial {x_k}}}C\left( {{\gamma _1}\left( {{t_1}} \right), \cdots ,{\gamma _k}\left( {{t_k}} \right),{\gamma _{k + 1}}\left( t \right), \cdots ,{\gamma _I}\left( t \right)} \right)}}
+    \end{split}
+\end{equation}
+}
+
+
+\subsubsection{小小节样本}
+
+小小节文字，引文示例~\cite{ELIDRISSI94,MELLINGER96}。
+
+\section{用Google来做\LaTeX 的bib文件}
+
+1.打开 scholar.google.com
+
+2.定制   Scholar Preferences $\rightarrow$ Bibliography Manager $\rightarrow$ Show links to
+import citations into BibTeX (选中这个)
+
+3. search something like "multicast" in the scholar.google.com, in
+the result list, kick "Import into BibTeX"    copy the text to
+BibTeX database directly,
+
+4 直接去编译，不用任何修改
+
+\section{\LaTeX 图片(eps,jpg等)处理的相关问题}
+\LaTeX 下处理图片一般用eps格式的文件.需要加载graphicx包:
+\begin{verbatim}
+\usepackage{graphicx}
+
+\begin{figure}
+    \centering
+    \includegraphics[totalheight=2.5in]{test.eps}
+    \caption{这是一个测试图片}
+    \label{fig:test}
+\end{figure}
+
+图\ref{fig:test}是测试图形。
+\end{verbatim}
+
+如果要处理jpg或者其它类型的文件,可以用工具转换成eps格式.
+
+更简单的方法则需要一个名字叫ebb的工具,一般widows下装上Ctex都会带这个小工具,Linux下安装Latex后一般也会有.
+
+先用ebb生成对应的BoundingBox文件,如输入命令: ebb test.jpg
+
+生成test.bb 里面可能会有如下内容:
+
+\begin{verbatim}
+%%Title:test.jpg
+%%Creator: ebb Version 0.5.2
+%%BoundingBox: 0 0 404 302
+%%CreationDate: Sun Oct 25 19:51:22 2008
+\end{verbatim}
+
+
+这样用下面的方法就可以在文档中使用jpg格式图片:
+\begin{verbatim}
+
+\begin{figure}
+    \centering
+    \includegraphics[totalheight=2.5in,bb= 0 0 404 302]{test.jpg}
+    \caption{这是一个测试图片}
+    \label{fig:test}
+\end{figure}
+
+图\ref{fig:test}是测试图形。
+\end{verbatim}
+
+如果没有这一步处理,在生成文档时就会给你提示:
+
+\LaTeX~~Error: File `test.bb' not found.
+或者(no BoundingBox)
+
+\section{BibTeX中参考文献类型的说明}
+摘自TeXGuru的Latex2e用户手册：
+
+@article条目为期刊或杂志上的一篇文章。
+     不可少域author, title, journal, year.
+     可省略域volume, number, pages, month, note.
+     
+@book条目为有确定出版社的书籍。
+     不可少域author或editor, title, publisher, year.
+     可省略域volume或number, series, address, edition, month, note.
+     
+@booklet条目为印制的有封皮的作品，但没有出版社或赞助机构的名称。
+       不可少域title.
+     可省略域author, howpublished, address, month, year, note.
+     
+@conference与下面的@inproceedings相同。
+
+@inbook条目为一本书的一部分(章，节或某些页)。
+     不可少域author或editor, title, chapter和/或pages, publisher,
+                       year.
+     可省略域volume或number, series, type, address, edition, month,
+                           note.
+                           
+@incollection条目为一本书中有自己题目的一部分。
+     不可少域author, title, booktitle, publisher, year.
+     可省略域editor, volume或number, series, type, chapter, pages,
+                 address, edition, month, note.
+@inproceedings条目为会议论文集中的一篇文章。
+
+     不可少域author, title, booktitle, year.
+     可省略域editor, volume或number, series, pages, address, month,
+                 organization, publisher, note.
+                 
+@manual条目为科技文档。
+       不可少域title.
+     可省略域author, organization, address, edition, month, year, note.
+     
+@mastersthesis条目为硕士论文。
+     不可少域author, title, school, year.
+     可省略域type, address, month, note.
+     
+@misc条目为不属于其它任何类型的作品。
+     不可少域没有。
+       可省略域author, title, howpublished, month, year, note.
+       
+@phdthesis条目为博士论文。
+     不可少域author, title, school, year.
+     可省略域type, address, month, note.
+     
+@proceedings条目为会议论文集。
+     不可少域title, year.
+     可省略域editor,volume或number, series, address, month,
+                 organization, publisher, note.
+                 
+@techreport条目为学校或其它研究机构印制的报告。
+     不可少域author, title, institution, year.
+     可省略域type, number, address, month, note.
+     
+@unpublished条目为有作者和标题的还未出版的作品。
+     不可少域author, title, note.
+     可省略域month, year.
+     
+在每项条目中还可以有可省略域key和crossref.

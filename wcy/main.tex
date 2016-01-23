@@ -1,0 +1,200 @@
+
+%draft 选项可以使插入的图形只显示外框，以加快预览速度。
+%fleqn 让公式左对齐。
+\documentclass[12pt,a4paper,openany,oneside]{book}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   引用的宏包
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{setup/package.tex}
+
+\newcommand{\reviewtimetoday}[2]{\special{!userdict begin
+    /bop-hook{gsave 20 710 translate 45 rotate 0.8 setgray
+    /Times-Roman findfont 12 scalefont setfont 0 0   moveto (#1) show
+    0 -12 moveto (#2) show grestore}def end}}
+
+\renewcommand{\figurename}{\songti 图}
+\renewcommand{\tablename}{\songti 表}
+% You can turn on or off this option.
+%\reviewtimetoday{\today}{Draft Version}
+\makeatletter
+\newenvironment{tablehere}
+  {\def\@captype{table}}
+  {}
+
+\newenvironment{figurehere}
+  {\def\@captype{figure}}
+  {}
+\makeatother
+
+\begin{document}
+\begin{CJK*}{GBK}{song}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%添加英文目录
+\makeatletter
+\newcommand\engcontentsname{Contents}
+\newcommand\tableofengcontents{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \chapter{\engcontentsname
+        \@mkboth{%
+           \MakeUppercase\engcontentsname}{\MakeUppercase\engcontentsname}}%
+    \@starttoc{toe}% !!!!Define a new contents!!!!
+    \if@restonecol\twocolumn\fi
+    }
+\newcommand\addengcontents[2]{%
+    \addcontentsline{toe}{#1}{\protect\numberline{\csname the#1\endcsname}#2}}
+\makeatother
+
+\newcommand\echapter[1]{\addengcontents{chapter}{#1}}
+\newcommand\esection[1]{\addengcontents{section}{#1}}
+\newcommand\esubsection[1]{\addengcontents{subsection}{#1}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%定义所有的eps文件在 figures 子目录下
+\graphicspath{{figures/}}
+
+
+\input{setup/format.tex}%定义本文的格式
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   正文部分
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%--- Preface ------------------------
+\frontmatter
+
+%解决中英文混排的断行问题，会加入间距，但不会影响断行
+\sloppy
+
+\pagenumbering{Roman}
+
+%封面 (中文封面)
+\input{preface/cover}
+
+%匿名评审封面
+%\input{preface/covera}
+
+%原创声明
+\statement
+%授权
+\copyright
+
+\fontsize{12pt}{12pt}\selectfont
+\renewcommand{\baselinestretch}{1.5}
+
+%中文摘要
+\clearpage  %页码显示正确
+\phantomsection %实现正确跳转
+\include{preface/c_abstract}
+\makecnabstract
+
+%英文摘要
+\clearpage      %页码显示正确
+\phantomsection %实现正确跳转
+\include{preface/e_abstract}
+\makeenabstract
+%目录
+\clearpage      %页码显示正确
+\phantomsection %实现正确跳转
+\tableofcontents % 生成中文目录
+\addcontentsline{toc}{chapter}{\hei目录}  
+ \addcontentsline{toe}{chapter}{\hei  Chinese Contents}
+\cleardoublepage
+%英文目录
+\clearpage      %页码显示正确
+\phantomsection %实现正确跳转
+\tableofengcontents % 生成英文目录
+\addcontentsline{toe}{chapter}{\hei  English Contents} 
+\cleardoublepage
+%表格目录
+%\listoftables
+%\addcontentsline{toc}{chapter}{\hei 表格目录} \tableofcontents
+%插图目录
+%\listoffigures
+%\addcontentsline{toc}{chapter}{\hei 插图目录} \tableofcontents
+%符号对照表
+%\include{preface/denotation}
+%\cleardoublepage
+
+%设置列表的行距
+
+%\renewcommand{\labelenumi}{(\arabic{enumi})}
+%\newitemsep
+
+% 对应于小四的标准字号是 12pt
+% 可以在正文中用此命令修改所需要字体的的大小
+% 下面这个设置是正文各章使用的标准字体与行距
+%\renewcommand{\baselinestretch}{1.5}
+%\fontsize{12pt}{12pt}\selectfont
+
+%--- body --------------------------
+\mainmatter
+%正文章节
+\include{body/chap00}
+\cleardoublepage
+\include{body/chap01}
+\cleardoublepage
+\include{body/chap02}
+\cleardoublepage
+\include{body/chap03}
+\cleardoublepage
+\include{body/chap04}
+%\cleardoublepage
+%\include{body/chap05}
+%\cleardoublepage
+%\include{body/chap06}
+%\cleardoublepage
+%\include{body/chap07}
+%\cleardoublepage
+%\backmatter
+
+%参考文献
+\wuhao
+%几种不同的文参考文献格式，推荐chinesebstB或GBTNLangC
+%\bibliographystyle{unsrt}
+%\bibliographystyle{setup/chinesebstB}  %英文名字姓在后，需要自己加上文献标示,已原样式修正标点
+\bibliographystyle{setup/GBTNLangC}     %%不排序,英文名字名在前，屏蔽s.n.标示,无排序
+%\bibliographystyle{setup/GBTNLang}     %%不排序，内容不详处加注"s.n."标示。
+%\bibliographystyle{setup/GBTAYLang}    %%排序，内容不详处加注"s.n."标示。
+%\ifpdf \phantomsection \fi
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\hei参考文献}
+\addcontentsline{toe}{chapter}{\hei References}
+%\addtolength{\itemsep}{-0.8 em} % 缩小参考文献间的垂直间距, 在bibtex下无效，可以在.bbl文件中修改达到目的
+\bibliography{body/reference}
+\nocite*{} %列出所有的文献，包括未引用的
+
+%打印索引
+%\generateindex
+%\cleardoublepage
+%附录
+%\begin{appendix}
+ %  \renewcommand{\chaptername}{附录\Alph{chapter}}
+%   \input{appendix/chap01a}
+%   \input{appendix/chap02a}
+%\end{appendix}
+\cleardoublepage
+
+%发表的文章列表
+%\include{appendix/publications}
+%致谢
+\include{appendix/acknowledgements}
+%\cleardoublepage
+
+%声明
+%\statement
+%\cleardoublepage
+\end{CJK*}
+\end{document}
+
+%%%%%%%%%%%%%%%%%% End of the file  %%%%%%%%%%%%%%%%%%%%%%%%

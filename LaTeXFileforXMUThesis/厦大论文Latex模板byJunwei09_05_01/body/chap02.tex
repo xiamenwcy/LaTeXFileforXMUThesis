@@ -1,0 +1,436 @@
+\chapter{表格示例}
+\label{chap03}
+
+生成表格可以使用的转换工具，是一个~Excel~下定义的宏文件：~Excel2LaTeX.xla~。
+不能使用的请设置~excel~的安全等级。设置完成以后。运行该软件。
+你在~excel~上会发现一个图标。生成的表格比较简单，需要自己调整得美观一些。
+
+
+{\bf 注意：}
+\begin{itemize}
+  \item {他不是万能的，还不能处理有修饰性的表格，例如有底色，有图片嵌入等等，处理学术性的表格也还可以了。
+但是他太机械，有时候大型表格不是很美观。
+如果想真正做出来漂亮的表格。要学好\LaTeX 表格处理命令。}
+  \item {表格环境中，\textbackslash label\{\}需要放置在\textbackslash caption\{\}之后，否则\textbackslash ref\{\}命令生成的是章节的标示。}
+   \item {跨页表格不能和其它浮动体放在一起，建议放在附录里。}
+\end{itemize}
+
+引用方式如下：\tablename\ref{tab_Copula}和表\ref{tab_cm}。
+\section{普通表格}
+
+\begin{table}[htp!]
+\renewcommand{\arraystretch}{1.5}
+\centering
+\begin{minipage}[t]{0.8\textwidth}
+\caption{各种Copula函数的参数估计}\label{tab_Copula}
+\begin{tabular}{p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}}
+\toprule
+  Copula类型 &       估计参数 &      极大似然值 & PIT-test P值 \\
+\midrule
+    Gumbel &    2.366** &  188.561** &     0.0618 \\
+\hline
+    Clyton &    3.708** &  322.240** &    0.0495* \\
+\hline
+     Frank &    8.107** &  223.557** &     0.0512 \\
+\bottomrule
+\end{tabular}\\
+\footnotesize {\xiaowu \song */**分别表示在5\%和1\%水平下拒绝原假设}\\
+\end{minipage}
+\end{table}
+
+\begin{table}[htp!]\label{tab_lci}
+\renewcommand{\arraystretch}{1.5}
+\centering
+\begin{minipage}[t]{0.9\textwidth}
+\caption{上市公司样本相关指标}
+\begin{tabular}{p{0.3\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}}
+\toprule
+{}&名流置业 &三一重工 &重庆路桥 \\
+\midrule
+{股权价值$E_t $} & {1112707100} & {5658368000} &{5527610000} \\
+\hline
+{股权收益波动率$\sigma _E $} & {17.60\%} & {22.30\%} &{14.80\%} \\
+\hline
+{长期负债$LT$} & {190000000} & {1863858900} &{2110000000} \\
+\hline
+{流动负债$ST$} & {851680421} & {4065992220} &{873546939} \\
+\hline
+{资产价值$V_t $} & {927982376} & {5666016544} &{1872714191} \\
+\hline
+{资产收益波动率$\sigma _v $} & {25.30\%} & {37.20\%} &{27.20\%} \\
+\hline
+{资产价值的期望值$E(V_1 )$} & {1852902410} & {11313335233} &{3739248425} \\
+\hline
+{违约点$DP$} & {946680421} & {4997921670} &{1928546939} \\
+\hline
+{违约距离$DD$} & {1.933} & {1.5} &{1.78} \\
+\hline
+{期望违约概率$EDF$} & {2.66\%} & {6.67\%} &{3.75\%} \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\end{table}
+
+\begin{table}[htp!]\label{tab_var}
+\renewcommand{\arraystretch}{1.5}
+\centering
+\begin{minipage}[t]{0.8\textwidth}
+\caption{信用组合损失VaR}
+\begin{tabular}{>{\centering}p{0.3\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+\toprule
+       VaR &   有担保债券 &      无担保债券 \\
+\midrule
+      85\% &          0 &          0 \\
+      90\% &      0.241 &     0.3409 \\
+      95\% &      1.003 &     1.0443 \\
+      99\% &     2.0559 &     2.3749 \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\end{table}
+
+
+\begin{table}[htp!]\label{tab_dp}
+\renewcommand{\arraystretch}{1.5}
+\centering
+\begin{minipage}[t]{0.8\textwidth}
+\caption{信用价差的基本分析}
+\begin{tabular}{p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}}
+\toprule
+           &            &            &            \\
+\hline
+        均值 &     128.95 &      90.41 &     210.83 \\
+\hline
+       中位数 &     117.57 &       48.5 &     187.84 \\
+\hline
+       标准差 &      52.35 &      84.37 &      90.87 \\
+\hline
+        偏度 &       0.17 &       1.84 &       0.21 \\
+\hline
+        峰度 &        1.8 &       6.47 &       1.56 \\
+\hline
+       J-B &    19.20** &   314.82** &    27.45** \\
+\hline
+   Arch LM &       0.51 &       0.61 &      0.016 \\
+\hline
+ Ljung-box &     7.92** &       0.89 &       2.64 \\
+\bottomrule
+\end{tabular}\\
+\footnotesize {\xiaowu \song */**分别表示在5\%和1\%水平下拒绝原假设}\\
+\end{minipage}
+\end{table}
+
+
+\begin{table}[htp!]\label{tab_dv}
+\renewcommand{\arraystretch}{1.5}
+\centering
+\begin{minipage}[t]{0.8\textwidth}
+\caption{信用违约互换的定价}
+\begin{tabular}{>{\centering}p{0.45\textwidth}p{0.45\textwidth}}
+\toprule
+ (第k次违约互换) & 信用价差 \\
+\midrule
+       k=1 &     130.52 \\
+       k=2 &     121.53 \\
+       K=3 &      95.32 \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\end{table}
+
+
+\begin{table}[htp!]\label{tab_in}
+\renewcommand{\arraystretch}{1.5}
+\centering
+\begin{minipage}[t]{0.9\textwidth}
+\caption{内部模型比较一览表}
+\begin{tabular}{|p{0.12\textwidth}|p{0.18\textwidth}|p{0.19\textwidth}|p{0.2\textwidth}|p{0.2\textwidth}|}
+\toprule
+           & CreditMetrics &        KMV &        CPV & CreditRisk+ \\
+\hline
+      信用事件 & 用评级以及单个债务人的违约概率来衡量违约以及评级转移 & 用单个债务人的EDF来衡量违约以及评级转移 & 采用按国别、行业以及风险档次划分的组合子集的违约率和转移率 & 采用按国别、行业、风险档次、敞口区间划分的组合子集的违约率和转移率 \\
+\hline
+     相关性结构 & 来自股本回报的多元模型 & 来自资产回报的正交多元模型 & 来自经济计量模型：（1）预测经济变量的ARIMA模型（2）多元逻辑函数指数模型 & 来自使用者定义的组合子集违约概率密度与外部风险因子之间的关系 \\
+\hline
+  产生组合价值分布 & 用联合转移矩阵模拟信用状态 & 用蒙特卡罗模拟方法模拟相关的资产价值 & 用蒙特卡罗方法模拟经济变量并预测指数值，组合子集的违约率和转移率是预测的指数值的逻辑函数 & 组合子集违约概率服从一个混合的泊松分布。混合变量是风险因子的线性函数 \\
+\hline
+债项在风险期末的信用状态 &    模拟的信用评级 &    模拟的EDF值 & 模拟的组合子集违约率 &  组合子集的违约密度 \\
+\hline
+风险期末的信贷价值重估 & 使用与期末评级对应的信贷利差溢价 & 使用信贷利差溢价或风险期末EDF对应的违约概率 & 不重估风险期末的信贷资产价值 & 使用与期末评级对应的信贷利差溢价 \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\end{table}
+
+
+\begin{table}[htp!]
+\renewcommand{\arraystretch}{1.5}
+\centering
+\begin{minipage}[t]{0.8\textwidth}
+\caption{信用衍生工具与传统信用风险工具的比较}
+\begin{tabular}{|p{0.16\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|}
+\toprule
+定价& 市场驱动（基于债券或货款的交易价格） &   无透明性，秘密的 &   无透明性，秘密的 \\
+\hline
+交易对手信用风险& 信用衍生工具自身的风险 &          无 &          有 \\
+\hline
+违约成本&          低 &    贷款收回的成本 &    贷款收回的成本 \\
+\hline
+会计影响&        无影响 &  要求反应收益或损失 &  要求反应收益或损失 \\
+\hline
+进行中的成本&         最低 &        当前的 &         最低 \\
+\hline
+        文件 &  标准的（ISDA） &        惯例的 &        惯例的 \\
+\bottomrule
+\end{tabular}
+\label{tab_cm}
+\end{minipage}
+\end{table}
+
+
+\begin{table}[htp!]\label{tab_copular}
+\renewcommand{\arraystretch}{1.5}
+\centering
+\begin{minipage}[t]{0.8\textwidth}
+\caption{Copula估计结果及拟合优度检验}
+\begin{tabular}{p{0.16\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}|p{0.25\textwidth}}
+\toprule
+  Copula类型 &       估计参数 &      极大似然值 &     PIｔｅｓｔ \\
+\hline
+    Gumbel &    2.950** &   378.29** &    0.0504* \\
+\hline
+    Clyton &    3.859** &   458.10** &    0.0896* \\
+\hline
+     Frank &   13.117** &  495.420** &   0.0498** \\
+\bottomrule
+\end{tabular}\\
+\footnotesize {\xiaowu \song 注：*/**分别表示在5\%和1\%水平下拒绝原假设}\\
+\end{minipage}
+\end{table}
+
+现以第一个子信息系统$S_1=\{U_1,A,V_A,f\}$为例说明，先由$A=\{v1,\cdots,T\}$生成一元属性集$\mathbf{A}^1=\{\{v1\},\cdots,\{T\}\}$，
+再由$\mathbf{A}^1$生成$\mathbf{R}^1=\{R^1_{\{v1\}},\cdots,R^1_{\{T\}}\}$。
+由此得到的一元等价关系族的信息度为$\alpha^1_j\;(j=1,\cdots,7)$，见表(4)中$\mathbf{R}^1$行,
+显然$R^1_{\{v1\}}$具有最大的信息度0.7454，因此$A^1_*=\{T\}$；由$A^1_*$生成$\mathbf{A}^2_*=\{
+\{T,v1\},\cdots,\{T,v6\}  \}$，
+并计算$\mathbf{R}^2_*$的信息度，并选出最大信息度对应的二元属性集$A^2_*=\{T,v2\}$；
+依次重复直至满足中止条件，迭代的中间结果见\tablename\ref{RS_table3}。
+\begin{table}[!htbp]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\caption{$S_1$中等价关系族的信息度alpha}\label{RS_table3}
+\begin{tabular}{c|r|| c|r|| c|r|| c|r } \hline
+\multicolumn{2}{c||}{$\mathbf{R}^1$}
+&\multicolumn{2}{c||}{$\mathbf{R}^2$}
+                            &\multicolumn{2}{c||}{$\mathbf{R}^3$} & \multicolumn{2}{c}{$\mathbf{R}^4$} \\ \hline
+T  &\underline{0.7454} &T v1    &0.5995     &T v2 v1    &0.5838    &T v2 v6 v1          &\underline{0.5755}   \\
+v1 &0.4846     &T v2            &\underline{0.6312}     &T v2 v3 &0.5061  &T v2 v6 v3   &0.5146       \\
+v2 &0.5433     &T v3            &0.4956     &T v2 v4    &0.5965    &T v2 v6 v4          &0.5742       \\
+v3 &0.2991     &T v4            &0.5971     &T v2 v5    &0.5526    &T v2 v6 v5          &0.5379       \\
+v4 &0.4056     &T v5            &0.5355     &T v2 v6    &\underline{0.5970}&           &               \\
+v5 &0.2031     &T v6            &0.6123     &        &          &           &               \\
+v6 &0.4030     &     &           &        &          &           &               \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{长表格}
+
+长表格示例\ref{exmp:longlabular}：该环境的表的标题格式需要自己修改，
+并且加载\textbackslash usepackage\{caption\}宏包，并使用类似语句修改标标题格式：
+
+\textbackslash captionsetup\{font=default,textfont=sf,labelfont=bf\}。
+\begin{longtable}{|r|r|r|r|}
+    \caption{ 长表格示例\label{exmp:longlabular} }\\
+        \toprule
+        Number & {Number$^2$} & Number$^4$ & {Number!} \\
+        \midrule
+    \endfirsthead
+        \multicolumn{4}{r}{\small\sl 接前表}\\
+        \midrule
+        Number & {Number$^2$} & Number$^4$ & {Number!} \\
+        \midrule
+    \endhead
+        \midrule
+        \multicolumn{4}{r}{\small\sl 续下表}\\
+    \endfoot
+        \hline
+    \endlastfoot
+    1   &  1     &        1  &           1 \\
+    2   &     4  &       16  &           2    \\
+    3   &     9  &       81  &           6    \\
+    4   &    16  &      256  &          24    \\
+    5   &    25  &      625  &         120    \\
+    6   &    36  &     1296  &         720    \\
+    7   &    49  &     2401  &        5040    \\
+    8   &    64  &     4096  &       40320    \\
+    9   &    81  &     6561  &      362880    \\
+    10  &   100  &    10000  &     3628800    \\
+    11  &   121  &    14641  &    39916800    \\
+    12  &   144  &    20736  &   479001600    \\[.5cm]
+    13  &   169  &    28561  &  6.22702080E+9 \\[1cm]
+    14  &   196  &    38416  &  8.71782912E+10\\
+    15  &   225  &    50625  &  1.30767437E+12\\
+    16  &   256  &    65536  &  2.09227899E+13\\
+    17  &   289  &    83521  &  3.55687428E+14\\[5mm]
+    18  &   324  &   104976  &  6.40237370E+15\\
+    19  &   361  &   130321  &  1.21645100E+17\\
+    20  &   400  &   160000  &  2.43290200E+18\\
+        13  &   169  &    28561  &  6.22702080E+9 \\[1cm]
+    14  &   196  &    38416  &  8.71782912E+10\\
+    15  &   225  &    50625  &  1.30767437E+12\\
+    16  &   256  &    65536  &  2.09227899E+13\\
+    17  &   289  &    83521  &  3.55687428E+14\\[5mm]
+    18  &   324  &   104976  &  6.40237370E+15\\
+    19  &   361  &   130321  &  1.21645100E+17\\
+    20  &   400  &   160000  &  2.43290200E+18\\
+        13  &   169  &    28561  &  6.22702080E+9 \\
+    14  &   196  &    38416  &  8.71782912E+10\\
+    15  &   225  &    50625  &  1.30767437E+12\\
+    16  &   256  &    65536  &  2.09227899E+13\\
+    17  &   289  &    83521  &  3.55687428E+14\\
+    18  &   324  &   104976  &  6.40237370E+15\\
+    19  &   361  &   130321  &  1.21645100E+17\\
+    20  &   400  &   160000  &  2.43290200E+18\\
+\end{longtable}
+
+\section{跨页表格}
+
+长表格示例\ref{exmp:supertabular}，
+跨页表格不能和其它浮动体放在一起，建议放在附录里：
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+    \tablefirsthead{%
+      \hline
+      \multicolumn{1}{|c}{ Number} &
+      \multicolumn{1}{c}{Number$^2$} &
+      Number$^4$ &
+      \multicolumn{1}{c|}{Number!} \\
+      \hline}
+    \tablehead{%
+
+      \multicolumn{4}{r}{\small\sl continued from previous page}\\
+      \hline
+      \multicolumn{1}{|c}{Number} &
+      \multicolumn{1}{c}{Number$^2$} &
+      Number$^4$ &
+      \multicolumn{1}{c|}{Number!} \\
+      \hline}
+    \tabletail{%
+      \hline
+      \multicolumn{4}{r}{\small\sl continued on next page}\\
+      }
+    \tablelasttail{}
+    \topcaption{跨行表格示例}
+    \begin{supertabular}{|r|r|r|r|}    \label{exmp:supertabular}
+    1   &  1  &        1  &           1 \\
+    2   &     4  &       16  &           2    \\
+    3   &     9  &       81  &           6    \\
+    4   &    16  &      256  &          24    \\
+    5   &    25  &      625  &         120    \\
+    6   &    36  &     1296  &         720    \\
+    7   &    49  &     2401  &        5040    \\
+    8   &    64  &     4096  &       40320    \\
+    9   &    81  &     6561  &      362880    \\
+    10  &   100  &    10000  &     3628800    \\
+    11  &   121  &    14641  &    39916800    \\
+    12  &   144  &    20736  &   479001600    \\[.5cm]
+    \hline & & & \\
+    13  &   169  &    28561  &  6.22702080E+9 \\[1cm]
+    14  &   196  &    38416  &  8.71782912E+10\\
+    15  &   225  &    50625  &  1.30767437E+12\\
+    16  &   256  &    65536  &  2.09227899E+13\\
+    17  &   289  &    83521  &  3.55687428E+14\\[5mm]
+    18  &   324  &   104976  &  6.40237370E+15\\
+    19  &   361  &   130321  &  1.21645100E+17\\
+    20  &   400  &   160000  &  2.43290200E+18\\\hline
+        13  &   169  &    28561  &  6.22702080E+9 \\[1cm]
+    14  &   196  &    38416  &  8.71782912E+10\\
+    15  &   225  &    50625  &  1.30767437E+12\\
+    16  &   256  &    65536  &  2.09227899E+13\\
+    17  &   289  &    83521  &  3.55687428E+14\\[5mm]
+    18  &   324  &   104976  &  6.40237370E+15\\
+    19  &   361  &   130321  &  1.21645100E+17\\
+    20  &   400  &   160000  &  2.43290200E+18\\\hline
+        13  &   169  &    28561  &  6.22702080E+9 \\
+    14  &   196  &    38416  &  8.71782912E+10\\
+    15  &   225  &    50625  &  1.30767437E+12\\
+    16  &   256  &    65536  &  2.09227899E+13\\
+    17  &   289  &    83521  &  3.55687428E+14\\
+    18  &   324  &   104976  &  6.40237370E+15\\
+    19  &   361  &   130321  &  1.21645100E+17\\
+    20  &   400  &   160000  &  2.43290200E+18\\\hline
+    \multicolumn{4}{l}{\footnotesize {\xiaowu \song 资料来源：}}\\
+    \end{supertabular}
+\end{center}
+
+将表格放在浮动体中
+\begin{table}[hbp]
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+    \tablefirsthead{%
+      \hline
+      \multicolumn{1}{|c}{ Number} &
+      \multicolumn{1}{c}{Number$^2$} &
+      Number$^4$ &
+      \multicolumn{1}{c|}{Number!} \\
+      \hline}
+    \tablehead{%
+
+      \multicolumn{4}{r}{\small\sl continued from previous page}\\
+      \hline
+      \multicolumn{1}{|c}{Number} &
+      \multicolumn{1}{c}{Number$^2$} &
+      Number$^4$ &
+      \multicolumn{1}{c|}{Number!} \\
+      \hline}
+    \tabletail{%
+      \hline
+      \multicolumn{4}{r}{\small\sl continued on next page}\\
+      }
+    \tablelasttail{}
+    \topcaption{跨行表格示例}
+    \begin{supertabular}{|r|r|r|r|}
+    1   &  1  &        1  &           1 \\
+    2   &     4  &       16  &           2    \\
+    3   &     9  &       81  &           6    \\
+    4   &    16  &      256  &          24    \\
+    5   &    25  &      625  &         120    \\
+    6   &    36  &     1296  &         720    \\
+    7   &    49  &     2401  &        5040    \\
+    8   &    64  &     4096  &       40320    \\
+    9   &    81  &     6561  &      362880    \\
+    10  &   100  &    10000  &     3628800    \\
+    11  &   121  &    14641  &    39916800    \\
+    12  &   144  &    20736  &   479001600    \\[.5cm]
+    \hline & & & \\
+    13  &   169  &    28561  &  6.22702080E+9 \\[1cm]
+    14  &   196  &    38416  &  8.71782912E+10\\
+    15  &   225  &    50625  &  1.30767437E+12\\
+    16  &   256  &    65536  &  2.09227899E+13\\
+    17  &   289  &    83521  &  3.55687428E+14\\[5mm]
+    18  &   324  &   104976  &  6.40237370E+15\\
+    19  &   361  &   130321  &  1.21645100E+17\\
+    20  &   400  &   160000  &  2.43290200E+18\\\hline
+        13  &   169  &    28561  &  6.22702080E+9 \\[1cm]
+    14  &   196  &    38416  &  8.71782912E+10\\
+    15  &   225  &    50625  &  1.30767437E+12\\
+    16  &   256  &    65536  &  2.09227899E+13\\
+    17  &   289  &    83521  &  3.55687428E+14\\[5mm]
+    18  &   324  &   104976  &  6.40237370E+15\\
+    19  &   361  &   130321  &  1.21645100E+17\\
+    20  &   400  &   160000  &  2.43290200E+18\\\hline
+        13  &   169  &    28561  &  6.22702080E+9 \\
+    14  &   196  &    38416  &  8.71782912E+10\\
+    15  &   225  &    50625  &  1.30767437E+12\\
+    16  &   256  &    65536  &  2.09227899E+13\\
+    17  &   289  &    83521  &  3.55687428E+14\\
+    18  &   324  &   104976  &  6.40237370E+15\\
+    19  &   361  &   130321  &  1.21645100E+17\\
+    20  &   400  &   160000  &  2.43290200E+18\\\hline
+    \multicolumn{4}{l}{\footnotesize {\xiaowu \song 资料来源：}}\\
+    \end{supertabular}
+\end{center}
+\end{table}
+%

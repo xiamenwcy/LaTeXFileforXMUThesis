@@ -1,0 +1,50 @@
+
+\chapter{定理环境介绍}
+\echapter{\ref{chap1}\enskip Introduction of environment theorem  }
+\label{chap1}
+\section{使用说明}
+在CTex下 按照LATEX,BibTeX,LATEX,LATEX顺序可以完全编译。
+\section{节标题1}
+\esection{Section Title1}
+\label{chap1:sample1}
+下面介绍常用的数学定理环境,包括：定义、性质、引理、证明、例.\par
+\begin{definition}
+对任给的自然数$n\geq2$和n个实参数$\lambda_i,i=1,2,\cdots,n$,称多项式函数组：
+\begin{equation}\label{chap1:eq10}
+  \begin{cases}
+    b_0^n(t) & =(1-t)^{n-1}((1-t)-\lambda_1t) \\
+    b_i^n(t)  & =t^i(1-t)^{n-1-i}(\tbinom{n}{i}(1-t)+\lambda_i(1-t)-\lambda_{i+1}t),i=1,\cdots,\left[\frac{n}{2}\right]-1\\
+    b_{\left[\frac{n}{2}\right]}^n&=t^{[n/2]}(1-t)^{n-1-[n/2]}(\tbinom{n}{[n/2]}(1-t)+\lambda_{[n/2]}(1-t)+\lambda_{[n/2]+1}t)\\
+    b_i^n(t)  & =t^i(1-t)^{n-1-i}(\tbinom{n}{i}(1-t)-\lambda_i(1-t)+\lambda_{i+1}t),i=\left[\frac{n}{2}\right]+1,\cdots,n-1\\
+    b_{n}^n(t)&=t^n(1-\lambda_n)
+  \end{cases}
+\end{equation}
+为带形状参数$\{\lambda_i\}_{i=1}^n$的一类新的n次广义Bernstein基.\par
+\end{definition}
+\begin{prop}\label{chap3:prop1}
+{\bf(非负性)\quad}当第一类拟Bernstein条件或第二类拟Bernstein条件成立时,基函数非负.即$T_{i,n}(u)\geq0,i=0,1,\cdots,n$.
+\end{prop}
+为了证明此性质,我们引入如下引理.
+\begin{lemma}\label{chap3:lemma0}
+如下不等式
+\begin{equation}\label{chap3:defeq4}
+ \left[\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}\right](1-u)^{\frac{n}{2}}u^{\frac{n}{2}}-1<0
+\end{equation}
+在$u\in[0,1]$恒成立.
+\end{lemma}
+\begin{proof}
+记:
+\begin{equation*}
+  W=\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}
+\end{equation*}
+\begin{equation}\label{chap3:eq6}
+  H(u)=W(1-u)^{\frac{n}{2}}u^{\frac{n}{2}}-1
+\end{equation}
+于是上述不等式的左边变为$H(u)$.
+\end{proof}
+\begin{example}
+取$k=1$($C^1$连续),$\alpha_2=\beta_1,\lambda_1=\lambda_2=-1/4$,其他参数任意,将参数代入方程中,则此时$\gamma_0=1,\gamma_1=-3.$如图所示,两曲线在连接处$C^1$连续.
+\end{example}
+
+
+

@@ -1,0 +1,120 @@
+\chapter{数据表格}
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+    \tablefirsthead{%
+      \hline
+      \multicolumn{1}{|c}{ Number} &
+      \multicolumn{1}{c}{Number$^2$} &
+      Number$^4$ &
+      \multicolumn{1}{c|}{Number!} \\
+      \hline}
+    \tablehead{%
+
+      \multicolumn{4}{r}{\small\sl continued from previous page}\\
+      \hline
+      \multicolumn{1}{|c}{Number} &
+      \multicolumn{1}{c}{Number$^2$} &
+      Number$^4$ &
+      \multicolumn{1}{c|}{Number!} \\
+      \hline}
+    \tabletail{%
+      \hline
+      \multicolumn{4}{r}{\small\sl continued on next page}\\
+      }
+    \tablelasttail{}
+    \topcaption{跨行表格示例}
+    \begin{supertabular}{|r|r|r|r|}    \label{exmp:supertabular}
+    1   &  1  &        1  &           1 \\
+    2   &     4  &       16  &           2    \\
+    3   &     9  &       81  &           6    \\
+    4   &    16  &      256  &          24    \\
+    5   &    25  &      625  &         120    \\
+    6   &    36  &     1296  &         720    \\
+    7   &    49  &     2401  &        5040    \\
+    8   &    64  &     4096  &       40320    \\
+    9   &    81  &     6561  &      362880    \\
+    10  &   100  &    10000  &     3628800    \\
+    11  &   121  &    14641  &    39916800    \\
+    12  &   144  &    20736  &   479001600    \\[.5cm]
+    \hline & & & \\
+    13  &   169  &    28561  &  6.22702080E+9 \\[1cm]
+    14  &   196  &    38416  &  8.71782912E+10\\
+    15  &   225  &    50625  &  1.30767437E+12\\
+    16  &   256  &    65536  &  2.09227899E+13\\
+    17  &   289  &    83521  &  3.55687428E+14\\[5mm]
+    18  &   324  &   104976  &  6.40237370E+15\\
+    19  &   361  &   130321  &  1.21645100E+17\\
+    20  &   400  &   160000  &  2.43290200E+18\\\hline
+        13  &   169  &    28561  &  6.22702080E+9 \\[1cm]
+    14  &   196  &    38416  &  8.71782912E+10\\
+    15  &   225  &    50625  &  1.30767437E+12\\
+    16  &   256  &    65536  &  2.09227899E+13\\
+    17  &   289  &    83521  &  3.55687428E+14\\[5mm]
+    18  &   324  &   104976  &  6.40237370E+15\\
+    19  &   361  &   130321  &  1.21645100E+17\\
+    20  &   400  &   160000  &  2.43290200E+18\\\hline
+        13  &   169  &    28561  &  6.22702080E+9 \\
+    14  &   196  &    38416  &  8.71782912E+10\\
+    15  &   225  &    50625  &  1.30767437E+12\\
+    16  &   256  &    65536  &  2.09227899E+13\\
+    17  &   289  &    83521  &  3.55687428E+14\\
+    18  &   324  &   104976  &  6.40237370E+15\\
+    19  &   361  &   130321  &  1.21645100E+17\\
+    20  &   400  &   160000  &  2.43290200E+18\\\hline
+    \multicolumn{4}{l}{\footnotesize {\xiaowu \song 资料来源：}}\\
+    \end{supertabular}
+\end{center}
+
+\newpage
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+    \tablefirsthead{%
+      \toprule
+      \multicolumn{1}{p{0.3\textwidth}}{\centering 月份} &
+      \multicolumn{1}{p{0.3\textwidth}}{\centering 进口}&
+      \multicolumn{1}{p{0.3\textwidth}}{\centering 出口} \\
+      \midrule}
+    \tablehead{%
+      \multicolumn{3}{r}{\small\sl 继上表}\\
+      \toprule
+      \multicolumn{1}{p{0.3\textwidth}}{\centering 月份} &
+      \multicolumn{1}{p{0.3\textwidth}}{\centering 进口}&
+      \multicolumn{1}{p{0.3\textwidth}}{\centering 出口} \\
+      \midrule}
+    \tabletail{%
+      \bottomrule
+      \multicolumn{3}{r}{\small\sl 继下表}\\
+      }
+    \tablelasttail{\bottomrule}
+    \topcaption{2005年01月-2006年12月的中国进出口月度总额\quad 单位：亿美元}
+    \begin{supertabular}{ccc}
+    \label{tab:inout}
+   2005.01 &      442.5 &      507.3 \\
+   2005.02 &        399 &      442.8 \\
+   2005.03 &      552.3 &      608.5 \\
+   2005.04 &      576.7 &      620.9 \\
+   2005.05 &      494.3 &      584.3 \\
+   2005.06 &      562.3 &      659.3 \\
+   2005.07 &      549.5 &      655.5 \\
+   2005.08 &      578.1 &        684 \\
+   2005.09 &      626.2 &      701.9 \\
+   2005.10 &      560.8 &      680.9 \\
+   2005.11 &      616.2 &      721.3 \\
+   2005.12 &        644 &      754.1 \\
+   2006.01 &      554.9 &      651.3 \\
+   2006.02 &      515.8 &      541.1 \\
+   2006.03 &      668.7 &      780.2 \\
+   2006.04 &      664.5 &      768.3 \\
+   2006.05 &      601.3 &      730.7 \\
+   2006.06 &      668.6 &      812.8 \\
+   2006.07 &      657.4 &        803 \\
+   2006.08 &      719.2 &      907.3 \\
+   2006.09 &      762.8 &      915.8 \\
+   2006.10 &      642.8 &      881.1 \\
+   2006.11 &      729.2 &      958.3 \\
+   2006.12 &        731 &        941 \\
+    \end{supertabular}
+    \begin{flushleft}
+    \footnotesize {\xiaowu \song {数据来源：\url{http://www.stats.gov.cn/}}}
+    \end{flushleft}
+\end{center}

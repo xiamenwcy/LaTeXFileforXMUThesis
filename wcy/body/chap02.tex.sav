@@ -1,0 +1,751 @@
+\chapter{带3个形状参数的偶数次B$\acute{e}$zier曲线}
+\label{chap03}
+文献\cite{zhang1}提出了带3个参数的2 次B$\acute{e}$zier曲线,使得曲线既可以上下移动，又可以从左右逼近控制多边形.文献\cite{zhang2}将文献\cite{zhang1}的方法推广到4次，本文我们将其推广到n 次(n为偶数).\par
+下面我们将给出基函数的定义和由此定义的曲线,并且约定下面的叙述中一般情况下,n为偶数,特殊情况下会有说明.\par
+\section{基函数的定义与性质}
+\label{chap3:ji1}
+\begin{definition}
+设$u\in[0,1],\alpha,\beta\in[0,1],\lambda\in[-1,0]$,称关于u的多项式
+\begin{equation}\label{equ:def1 }
+\begin{cases}
+  T_{0,n}(u) =\lambda(1-u)^{n+1}+(1-u)^n(1-\alpha u)\\
+  T_{i,n}(u) =\left\{\tbinom{n}{i}+\left[\tbinom{n}{i}+(-1)^{i+1}\right]\lambda+(-1)^{i+1}\alpha\right\}(1-u)^{n-i}u^{i}\\
+  \hspace{10em} i=1,\cdots,n/2-1\\
+ T_{\frac{n}{2},n}(u)=(\beta-\alpha)(1-u)u^n+\left\{\tbinom{n}{\frac{n}{2}}+\left[\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}\right]\lambda+(-1)^{\frac{n}{2}+1}\alpha\right\}(1-u)^{\frac{n}{2}}u^{\frac{n}{2}}-\lambda\\
+ T_{i,n}(u) =\left\{\tbinom{n}{i}+\left[\tbinom{n}{i}+(-1)^{i+1}\right]\lambda+(-1)^{i+1}\alpha\right\}(1-u)^{n-i}u^{i}\\
+  \hspace{10em} i=n/2+1,\cdots,{n-1}\\
+ T_{n,n}(u) =\lambda u^{n+1}+(1-\beta+\beta u)u^n
+ \end{cases}
+\end{equation}
+\end{definition}
+为带3个形状参数的基函数.
+\begin{definition}\label{chap3:def2}
+称$\lambda=0,\beta\geq\alpha,\alpha,\beta\in[0,1]$为第一类拟Bernstein条件。
+\end{definition}
+
+\begin{definition}\label{chap3:def3}
+称$\lambda\in[M,N],\alpha,\beta\in[0,1]$为第二类拟Bernstein条件。其中
+\begin{equation*}
+M=
+\begin{cases}
+-1& n=2\\
+-\frac{n}{n+1}&n>2
+\end{cases}
+\end{equation*}
+\begin{equation*}
+N=
+\begin{cases}
+0& n=2\\
+-0.1&n>2
+\end{cases}
+\end{equation*}
+\end{definition}
+\eqref{equ:def1 }式中各多项式最高次数是n+1次，其为n次Bernstein基函数的推广，且带有形状参数，故简称为n次$\lambda\alpha\beta-B$基函数.\par
+当$n=2$时,$\lambda\alpha\beta-B$基函数为:
+\begin{equation}\label{chap2:defeq1}
+\begin{cases}
+  T_{0,2}(u)&=\lambda(1-u)^3+(1-u)^2(1-\alpha u)\\
+  T_{1,2}(u)&=(\beta-\alpha)u^2(1-u)+(2+3\lambda+\alpha)u(1-u)-\lambda\\
+  T_{2,2}(u)&=\lambda u^3+(1-\beta+\beta u)u^2
+\end{cases}
+\end{equation}
+即为文献\cite{zhang1}提出的基函数.\par
+当$n=4$时,$\lambda\alpha\beta-B$基函数为:
+\begin{equation}\label{chap2:defeq2}
+\begin{cases}
+  T_{0,4}(u)&=\lambda(1-u)^5+(1-u)^4(1-\alpha u)\\
+  T_{1,4}(u)&=(4+5\lambda+\alpha)(1-u)^3u\\
+  T_{2,4}(u)&=(\beta-\alpha)u^4(1-u)+(6+5\lambda-\alpha)u^2(1-u)^2-\lambda\\
+  T_{3,4}(u)&=(4+5\lambda+\alpha)(1-u)u^3\\
+  T_{4,4}(u)&=\lambda u^5+(1-\beta+\beta u)u^4
+\end{cases}
+\end{equation}
+即为文献\cite{zhang2}提出的基函数.\par
+当$n=6$时,$\lambda\alpha\beta-B$基函数为:
+\begin{equation}\label{chap2:defeq3}
+\begin{cases}
+T_{0,6}(u)&=\lambda(1-u)^7+(1-u)^6(1-\alpha u)\\
+T_{1,6}(u)&=(6+7\lambda+\alpha)(1-u)^5u\\
+T_{2,6}(u)&=(15+14\lambda-\alpha)(1-u)^4u^2\\
+T_{3,6}(u)&=(\beta-\alpha)(1-u)u^6+(20+21\lambda+\alpha)(1-u)^3u^3-\lambda\\
+T_{4,6}(u)&=(15+14\lambda-\alpha)u^4(1-u)^2\\
+T_{5,6}(u)&=(7\lambda+\alpha+6)u^5(1-u)\\
+T_{6,6}(u)&=\lambda u^7+(1-\beta+\beta u)u^6
+\end{cases}
+\end{equation}
+
+n次$\lambda\alpha\beta-B$ 基函数具有以下性质.
+\begin{prop}\label{chap3:prop1}
+{\bf(非负性)\quad}当第一类拟Bernstein条件\ref{chap3:def2}或第二类拟Bernstein条件\ref{chap3:def3}成立时,基函数非负.即$T_{i,n}(u)\geq0,i=0,1,\cdots,n$.
+\end{prop}
+为了证明此性质,我们引入如下引理.
+\begin{lemma}\label{chap3:lemma0}
+如下不等式
+\begin{equation}\label{chap3:defeq4}
+ \left[\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}\right](1-u)^{\frac{n}{2}}u^{\frac{n}{2}}-1<0
+\end{equation}
+在$u\in[0,1]$恒成立.
+\end{lemma}
+\begin{proof}
+记:
+\begin{equation*}
+  W=\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}
+\end{equation*}
+\begin{equation}\label{chap3:eq6}
+  H(u)=W(1-u)^{\frac{n}{2}}u^{\frac{n}{2}}-1
+\end{equation}
+于是上述不等式的左边变为$H(u)$.\par
+对$H(u)$求导,则有:
+\begin{equation}\label{chap3:eq7}
+    H'(u) = \frac{n}{2}\cdot W\cdot(1-u)^{\frac{n}{2}-1}u^{\frac{n}{2}-1}(1-2u)
+\end{equation}
+显然$u=\frac{1}{2}$是$H'(u)$的唯一极值点,且是极大点.\par
+故
+\begin{equation}\label{chap3:eq8}
+\begin{split}
+  H_{max}(u)& =\frac{W}{2^n}-1 \\
+    & =\frac{\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}}{2^n}-1
+\end{split}
+\end{equation}
+上式中,
+\begin{equation*}
+  \frac{\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}}{2^n}\leq\frac{\tbinom{n}{\frac{n}{2}}}{2^n}
+\end{equation*}
+而
+\begin{equation*}
+ \frac{\tbinom{n}{\frac{n}{2}}}{2^n}=\frac{\tbinom{n}{\frac{n}{2}}}{\tbinom{n}{0}+\tbinom{n}{1}+\cdots+\tbinom{n}{\frac{n}{2}}+\cdots+\tbinom{n}{n}}<1
+\end{equation*}
+故
+\begin{equation*}
+  \frac{\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}}{2^n}-1<0
+\end{equation*}
+即$H(u)\leq H_{max}(u)<0$.
+\end{proof}
+
+\noindent  接下来我们开始证明性质\ref{chap3:prop1}.
+\begin{proof}
+我们分开来证。先看第一类拟Bernstein条件成立时的情形。显然，此时由于$u,\alpha,\beta\in[0,1]$,所以$T_{0,n}(u),T_{n,n}(u),T_i,n(u)(i=1,\cdots,n/2-1,n/2+1,\cdots,{n-1})$非负.而对于$T_{\frac{n}{2},n}=(\beta-\alpha)(1-u)u^n+\left[\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}\alpha\right](1-u)^{\frac{n}{2}}u^{\frac{n}{2}}$, 由于
+$\beta\geq\alpha$,故前一项非负，后一项显然也非负，故$T_{\frac{n}{2},n}$非负.\par
+再看第二类拟Bernstein条件成立时的情形。
+当$n=2$时，文献\cite{zhang1}已经给出了证明。下面我们将证明最一般的情况(即$n>2$).\par
+当$i=0$时,
+\begin{equation}\label{chap:core1}
+  \begin{split}
+     T_{0,n}(u) &= \lambda(1-u)^{n+1}+(1-u)^n(1-\alpha u) \\
+       &=(1-u)^n\left[\lambda(1-u)+1-\alpha u\right]
+   \end{split}
+\end{equation}
+令$g(\alpha,\lambda,u)=\lambda(1-u)+1-\alpha u$.考虑如下公式
+\begin{equation*}
+\begin{cases}
+g(\alpha,0,u)&=1-\alpha u\\
+g(\alpha,-1,u)&=u(1-\alpha)
+\end{cases}
+\end{equation*}
+显然对于任意的$\alpha\in[0,1]$
+和$u\in[0,1]$，上述不等式成立。由于$g(\alpha,\lambda,u)$是关于$\lambda$的单调函数，且$[M,N]\in[-1,0]$,故在此区间,$g(\alpha,\lambda,u)\geq0$.因此$T_{0,n}(u)\geq 0.$\par
+当$i=n$时,
+对于$T_{n,n}(u)=\lambda u^{n+1}+(1-\beta(1-u))u^n$,只需将1-u换成u,$\beta$换成$\alpha$,即可将$T_{n,n}(u)$变成$T_{0,n}(u)$.由于$\beta,\alpha,u\in[0,1]$,故
+换之前和换之后的参数范围相同，因此$T_{n,n}(u)\geq 0$.\par
+当$i=\frac{n}{2}$时,
+\begin{equation}\label{chap:core2}
+ T_{\frac{n}{2},n}(u)= (\beta-\alpha)(1-u)u^n+\left\{\tbinom{n}{\frac{n}{2}}+\left[\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}\right]\lambda+(-1)^{\frac{n}{2}+1}\alpha\right\}(1-u)^{\frac{n}{2}}u^{\frac{n}{2}}-\lambda\\
+\end{equation}
+显然当固定$u,\beta$时,$T_{\frac{n}{2},n}(u)$是关于$\alpha$的单调函数.我们改写$T_{\frac{n}{2},n}(u)$为$T_{\frac{n}{2},n}(\alpha,\beta,\lambda,u)$.因此我们只需证明如下的不等式成立.
+
+\begin{equation}\label{chap3:eq1}
+\begin{split}
+ T_{\frac{n}{2},n}(0,\beta,\lambda,u)&=\beta(1-u)u^n+\left\{\tbinom{n}{\frac{n}{2}}+\left[\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}\right]\lambda\right\}(1-u)^{\frac{n}{2}}u^{\frac{n}{2}}-\lambda\\
+ &\geq0
+ \end{split}
+\end{equation}
+
+\begin{equation}\label{chap3:eq2}
+\begin{split}
+T_{\frac{n}{2},n}(1,\beta,\lambda,u)&=(\beta-1)(1-u)u^n+\left\{\tbinom{n}{\frac{n}{2}}+\left[\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}\right]\lambda+(-1)^{\frac{n}{2}+1}\right\}(1-u)^{\frac{n}{2}}u^{\frac{n}{2}}-\lambda\\
+&\geq0
+\end{split}
+\end{equation}
+不等式\eqref{chap3:eq1}中,$T_{\frac{n}{2},n}(0,\beta,\lambda,u)$关于$\beta$是单调的.故欲证其在$\beta\in[0,1]$内非负,只需$T_{\frac{n}{2},n}(0,0,\lambda,u)$ 和$T_{\frac{n}{2},n}(0,1,\lambda,u)$非负即可.综合来看,只需证明下式成立即可.
+\begin{equation}\label{chap3:eq3}
+ Q1\triangleq\left\{\tbinom{n}{\frac{n}{2}}+\left[\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}\right]\lambda\right\}(1-u)^{\frac{n}{2}}u^{\frac{n}{2}}-\lambda\geq0
+\end{equation}
+同理不等式\eqref{chap3:eq2}中,$T_{\frac{n}{2},n}(1,\beta,\lambda,u)$关于$\beta$也是单调的.故欲证其在$\beta\in[0,1]$内非负,只需$T_{\frac{n}{2},n}(1,0,\lambda,u)$ 和$T_{\frac{n}{2},n}(1,1,\lambda,u)$非负即可.综合来看,只需证明下式成立即可.
+
+\begin{equation}\label{chap3:eq4}
+ Q2\triangleq-(1-u)u^n+\left\{\tbinom{n}{\frac{n}{2}}+\left[\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}\right]\lambda+(-1)^{\frac{n}{2}+1}\right\}(1-u)^{\frac{n}{2}}u^{\frac{n}{2}}-\lambda\geq0
+\end{equation}
+
+\begin{equation}\label{chap3:eq5}
+ Q3\triangleq\left\{\tbinom{n}{\frac{n}{2}}+\left[\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}\right]\lambda+(-1)^{\frac{n}{2}+1}\right\}(1-u)^{\frac{n}{2}}u^{\frac{n}{2}}-\lambda\geq0
+\end{equation}
+整理\eqref{chap3:eq3}和\eqref{chap3:eq5},可得到等价的不等式，如下：
+\begin{equation}\label{chap3:eq31}
+\left\{\left[\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}\right](1-u)^{\frac{n}{2}}u^{\frac{n}{2}}-1\right\}\lambda\geq-\tbinom{n}{\frac{n}{2}}(1-u)^{\frac{n}{2}}u^{\frac{n}{2}}
+\end{equation}
+
+\begin{equation}\label{chap3:eq51}
+\left\{\left[\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}\right](1-u)^{\frac{n}{2}}u^{\frac{n}{2}}-1\right\}\lambda\geq-\left[\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}\right](1-u)^{\frac{n}{2}}u^{\frac{n}{2}}
+\end{equation}
+显然\eqref{chap3:eq31}和\eqref{chap3:eq51}的左式相同,右式都是负的。为了证明上述不等式成立,我们将证明左式是非负的.\par
+记:
+\begin{equation*}
+  W=\tbinom{n}{\frac{n}{2}}+(-1)^{\frac{n}{2}+1}
+\end{equation*}
+\begin{equation}\label{chap3:eq6}
+  H(u)=W(1-u)^{\frac{n}{2}}u^{\frac{n}{2}}-1
+\end{equation}
+由引理\ref{chap3:lemma0}知,$H(u)<0$,
+结合$\lambda\in[-1,0]$,所以$H(u)\cdot \lambda\geq0$,即左式非负.\par
+因此不等式\eqref{chap3:eq31}和\eqref{chap3:eq51}成立,即\eqref{chap3:eq3}和\eqref{chap3:eq5}成立.\par
+同理整理\eqref{chap3:eq4},可得:
+\begin{equation}\label{chap3:eq41}
+  H(u)\cdot\lambda\geq(1-u)u^n-(H(u)+1)
+\end{equation}
+由于$H(u)<0$,所以：
+\begin{equation}\label{chap3:eq9}
+  \begin{split}
+    \lambda &\leq \frac{(1-u)u^n-(H(u)+1)}{H(u)} \\
+       & = \frac{(1-u)u^n-1}{H(u)}-1\\
+       & =\frac{1-(1-u)u^n}{1-W\cdot(1-u)^{\frac{n}{2}}\cdot u^{\frac{n}{2}}}-1
+   \end{split}
+\end{equation}
+令
+\begin{equation*}
+  \begin{split}
+    G(u) & = \frac{1-(1-u)u^n}{1-W\cdot(1-u)^{\frac{n}{2}}\cdot u^{\frac{n}{2}}}\\
+       & =\frac{G_1(u)}{G_2(u)}
+   \end{split}
+\end{equation*}
+则
+\begin{equation*}
+  \lambda\leq G(u)-1
+\end{equation*}
+易知$G(u)$中,$G_2(u)=-H(u)\in[0,1]$,而$G_1(u)$可通过求导得到唯一的最小值为:
+\begin{equation*}
+ (G_1(u))_{min}=G_1(\frac{n}{n+1})=1-\frac{n^n}{(n+1)^{n+1}}
+\end{equation*}
+当$n>2$时,
+\begin{equation*}
+\begin{split}
+\frac{(n+1)^{n+1}}{n^n}&=(\frac{n+1}{n})^n\cdot(n+1)\\
+    &=(n+1)\cdot(1+\frac{1}{n})^n\\
+    &\geq10
+\end{split}
+\end{equation*}
+故
+\begin{equation*}
+ (G_1(u))_{min}\geq1-\frac{1}{10}=0.9
+\end{equation*}
+所以
+\begin{equation*}
+ G(u)\geq\frac{(G_1(u))_{min}}{(G_2(u))_{max}}\geq\frac{0.9}{1}=0.9
+\end{equation*}
+所以
+\begin{equation*}
+ G(u)-1\geq-0.1
+\end{equation*}
+
+由于$\lambda\leq-0.1$,所以$\lambda\leq G(u)-1$,即不等式\eqref{chap3:eq4}是成立的.\par
+因此,当$i=\frac{n}{2}$时,\eqref{chap:core2}是非负的.\par
+当$i=1,2,\cdots,n-1$且$i\neq\frac{n}{2}$时,
+\begin{equation}\label{chap3:core3}
+ T_{i,n}(u) =\left\{\tbinom{n}{i}+\left[\tbinom{n}{i}+(-1)^{i+1}\right]\lambda+(-1)^{i+1}\alpha\right\}(1-u)^{n-i}u^{i}
+\end{equation}
+记$Q(u)=\tbinom{n}{i}+\left[\tbinom{n}{i}+(-1)^{i+1}\right]\lambda+(-1)^{i+1}\alpha$,
+于是\eqref{chap3:core3}变成
+\begin{equation}\label{chap3:eq11}
+ T_{i,n}(u)=Q(u)\cdot(1-u)^{n-i}u^{i}
+\end{equation}
+
+当i为偶数时,
+\begin{equation*}
+  Q(u)=\tbinom{n}{i}+\left[\tbinom{n}{i}-1\right]\lambda-\alpha
+\end{equation*}
+由于$-1\leq\lambda\leq0,\tbinom{n}{i}-1>0,0\leq\alpha\leq1$,所以
+\begin{equation*}
+  \begin{split}
+     \left[\tbinom{n}{i}-1\right]\lambda &\geq 1-\tbinom{n}{i}\\
+       \left[\tbinom{n}{i}-1\right]\lambda-\alpha&\geq 1-\tbinom{n}{i}-\alpha
+   \end{split}
+\end{equation*}
+所以
+\begin{equation*}
+ Q(u)\geq1-\alpha\geq0
+\end{equation*}\par
+当i为奇数时,
+\begin{equation*}
+  Q(u)=\tbinom{n}{i}+\left[\tbinom{n}{i}+1\right]\lambda+\alpha
+\end{equation*}
+考虑如下公式:
+\begin{equation}\label{chap3:eq10}
+  R(\alpha,i,u)=\frac{-\alpha-\tbinom{n}{i}}{\tbinom{n}{i}+1}
+\end{equation}
+容易知道,$ R(\alpha=0,i,u)$关于$i$是递减的,所以
+\begin{equation*}
+  R(\alpha=0,i,u)\leq R(\alpha=0,i=1,u)=\frac{-n}{n+1}
+\end{equation*}
+另外$ R(\alpha,i,u)$关于$\alpha$是递减的,所以$R(\alpha,i,u)\leq R(\alpha=0,i,u)\leq\frac{-n}{n+1}$.\\
+由给出的条件，我们知$\lambda\geq\frac{-n}{n+1}$,所以
+\begin{equation}\label{chap3:core4}
+  \begin{split}
+    \lambda &\geq R(\alpha,i,u) \\
+      & \geq \frac{-\alpha-\tbinom{n}{i}}{\tbinom{n}{i}+1}\\
+  \end{split}
+\end{equation}
+因此,
+\begin{equation*}
+  Q(u)=\tbinom{n}{i}+\left[\tbinom{n}{i}+1\right]\lambda+\alpha\geq0
+\end{equation*}
+由\eqref{chap3:eq11}知,$T_{i,n}(u)\geq0$.\par
+综上，我们就证明了所有的基函数非负.
+\end{proof}
+\begin{prop}\label{chap3:prop2}
+ {\bf(单位分解性)\quad}$$\sum\limits_{i=0}^{n}T_{i,n}(u)=1,u\in[0,1] $$
+\end{prop}
+为了证明此性质，我们先引进3个引理.
+%引理1
+\begin{lemma}\label{chap3:lemma1}
+ \begin{equation*}
+   (1-u)^n=(-1)^n\cdot u^n+(1-u)^{n-1}-\cdots+(-1)^iu^i(1-u)^{n-1-i}+\cdots+(-1)^{n-1}\cdot u^{n-1}
+ \end{equation*}
+ ({\bf 注:\quad}$n\geq2$,且$n$不分奇偶)
+\end{lemma}
+\begin{proof}
+我们使用数学归纳法来证明.\par
+当$n=2$时,上式中,左边=$(1-u)^2=1-2\cdot u+u^2$,\\
+右边=$(-1)^2\cdot u^2+(1-u)+(-1)\cdot u=u^2+1-2\cdot u$,故左边=右边，因此n=2时,引理\ref{chap3:lemma1}成立.\\
+设n-1时引理成立,我们来证n时也成立.
+\begin{equation*}
+  \begin{split}
+     (1-u)^n &=(1-u)\cdot(1-u)^{n-1} \\
+       &=(1-u)\left[(-1)^{n-1}u^{n-1}+(1-u)^{n-2}+\cdots+(-1)^{i}u^i(1-u)^{n-2-i}+\cdots+(-1)^{n-2}\cdot u^{n-2}\right]\\
+       &=(-1)^{n-1}u^{n-1}(1-u)+(1-u)^{n-1}+\cdots+(-1)^iu^i(1-u)^{n-1-i}\\
+       &+\cdots+(-1)^{n-2}u^{n-2}(1-u)\\
+       &=(1-u)^{n-1}+(-1)^nu^n+(-1)^{n-1}u^{n-1}+\cdots+(-1)^iu^i(1-u)^{n-1-i}\\
+       &+\cdots+(-1)^{n-2}u^{n-2}(1-u)\\
+       &=(-1)^nu^n+(1-u)^{n-1}+\cdots+(-1)^iu^i(1-u)^{n-1-i}\\
+       &+\cdots+(-1)^{n-2}u^{n-2}(1-u)+(-1)^{n-1}u^{n-1}
+   \end{split}
+\end{equation*}
+\end{proof}
+%引理2
+\begin{lemma}\label{chap3:lemma2}
+ \begin{equation*}
+ 1-u^n-(1-u)^n=\tbinom{n}{1}u(1-u)^{n-1}+\tbinom{n}{2}u^2(1-u)^{n-2}+\cdots+\tbinom{n}{n-1}u^{n-1}(1-u)
+ \end{equation*}
+ ({\bf 注:\quad}$n\geq2$,且$n$不分奇偶)
+\end{lemma}
+\begin{proof}
+事实上,使用二项式定理有:
+\begin{equation*}
+  \begin{split}
+     1&=(u+1-u)^n\\
+      &=(1-u)^n+\tbinom{n}{1}u(1-u)^{n-1}+\tbinom{n}{2}u^2(1-u)^{n-2}+\cdots+\tbinom{n}{n-1}u^{n-1}(1-u)+u^n\\
+   \end{split}
+\end{equation*}
+故\begin{equation*}
+ 1-u^n-(1-u)^n=\tbinom{n}{1}u(1-u)^{n-1}+\tbinom{n}{2}u^2(1-u)^{n-2}+\cdots+\tbinom{n}{n-1}u^{n-1}(1-u)
+ \end{equation*}
+\end{proof}
+%引理3
+\begin{lemma}\label{chap3:lemma3}
+ \begin{equation*}
+ \begin{split}
+  (1-u)^{n+1}&=1-u^{n+1}-u(1-u)\{\left[\tbinom{n}{1}+1\right]\widetilde{B}_{0,n-2}(u)+\cdots+\left[\tbinom{n}{i}+(-1)^{i+1}\right]\widetilde{B}_{i-1,n-2}(u)\\
+  &+\cdots+\left[\tbinom{n}{n-1}+1\right]\widetilde{B}_{n-2,n-2}(u)\}
+ \end{split}
+ \end{equation*}
+ ({\bf 注:\quad}$n\geq2$,且$n$为偶数,$\widetilde{B}_{i,n}(u)=u^i(1-u)^{n-i}$)
+\end{lemma}
+记:
+\begin{equation*}
+  \begin{split}
+   P(u)&=\{\left[\tbinom{n}{1}+1\right]\widetilde{B}_{0,n-2}(u)+\cdots+\left[\tbinom{n}{i}+(-1)^{i+1}\right]\widetilde{B}_{i-1,n-2}(u)\\
+  &+\cdots+\left[\tbinom{n}{n-1}+1\right]\widetilde{B}_{n-2,n-2}(u)\}
+   \end{split}
+\end{equation*}
+则引理\ref{chap3:lemma3}可等价于
+ \begin{equation*}
+ \begin{split}
+  (1-u)^{n+1}&=1-u^{n+1}-u(1-u)\cdot P(u)
+ \end{split}
+ \end{equation*}
+ \begin{proof}
+由引理\ref{chap3:lemma1}知,
+ \begin{equation*}
+ \begin{split}
+  (1-u)^n&=(-1)^n\cdot u^n+(1-u)^{n-1}-\cdots+(-1)^iu^i(1-u)^{n-1-i}+\cdots+(-1)^{n-1}\cdot u^{n-1}\\
+     &=u^n+(1-u)^{n-1}-\cdots+(-1)^iu^i(1-u)^{n-1-i}+\cdots-u^{n-1}
+ \end{split}
+ \end{equation*}
+ 因此：
+ \begin{equation}\label{chap3:eq12}
+   \begin{split}
+      (1-u)^{n+1} & =(1-u)\cdot(1-u)^{n} \\
+        & =(1-u)\cdot\left[u^n+(1-u)^{n-1}-\cdots+(-1)^iu^i(1-u)^{n-1-i}+\cdots-u^{n-1}\right]\\
+        &=(1-u)u^n+(1-u)^n-\cdots+(-1)^iu^i(1-u)^{n-i}+\cdots-u^{n-1}(1-u)\\
+        &=u^n-u^{n+1}+(1-u)^n-\cdots+(-1)^iu^i(1-u)^{n-i}+\cdots-u^{n-1}(1-u)\\
+        &=1-u^{n+1}-[\underbrace{1-u^n-(1-u)^n}+u(1-u)^{n-1}+\cdots+(-1)^{i+1}u^i(1-u)^{n-i}\\
+        &+\cdots+u^{n-1}(1-u)]
+    \end{split}
+ \end{equation}
+ 由引理\ref{chap3:lemma2}知,
+ \begin{equation*}
+   \begin{split}
+     \text{上式} & =1-u^{n+1}-[\underbrace{\tbinom{n}{1}u(1-u)^{n-1}+\tbinom{n}{2}u^2(1-u)^{n-2}+\cdots+\tbinom{n}{n-1}u^{n-1}(1-u)}\\
+     &+u(1-u)^{n-1}+\cdots+(-1)^{i+1}u^i(1-u)^{n-i}+\cdots+u^{n-1}(1-u)] \\
+     &=1-u^{n+1}-u(1-u)[\underbrace{\tbinom{n}{1}(1-u)^{n-2}+\tbinom{n}{2}u(1-u)^{n-3}+\cdots+\tbinom{n}{n-1}u^{n-2}}\\
+     &+(1-u)^{n-2}+\cdots+(-1)^{i+1}u^{i-1}(1-u)^{n-1-i}+\cdots+u^{n-2}] \\
+     &=1-u^{n+1}-u(1-u)\{[\tbinom{n}{1}+1](1-u)^{n-2}+[\tbinom{n}{2}-1](1-u)^{n-3}u\\
+     &+\cdots+[\tbinom{n}{i}+(-1)^{i+1}]u^{i-1}(1-u)^{n-1-i}+\cdots+[\tbinom{n}{n-1}+1]u^{n-2}\} \\
+     &=1-u^{n+1}-u(1-u)\{\left[\tbinom{n}{1}+1\right]\widetilde{B}_{0,n-2}(u)+\cdots+\left[\tbinom{n}{i}+(-1)^{i+1}\right]\widetilde{B}_{i-1,n-2}(u)\\
+  &+\cdots+\left[\tbinom{n}{n-1}+1\right]\widetilde{B}_{n-2,n-2}(u)\}\\
+  &=1-u^{n+1}-u(1-u)\cdot P(u)
+    \end{split}
+ \end{equation*}
+\end{proof}
+
+\noindent 下面我们开始证明性质\ref{chap3:prop2}
+\begin{proof}
+\begin{equation*}
+\begin{split}
+  \sum\limits_{i=0}^{n}T_{i,n}(u) &=\lambda(1-u)^{n+1}+\underbrace{\left[-\lambda+\lambda u^{n+1}+\lambda u(1-u)\cdot P(u)\right] }\\
+    &+\sum\limits_{i=0}^{n}B_{i,n}(u)-\alpha u(1-u)^n+\alpha u[\overbrace{(1-u)^{n-1}-u(1-u)^{n-2}+\cdots}\\
+    &\overbrace{+u^{n-2}(1-u)-(1-u)u^{n-1}}]+\beta(1-u)u^{n-1}+(-\beta+\beta u)u^{n-1}
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+    &=\lambda(1-u)^{n+1}-\lambda\underbrace{\left[1-u^{n+1}-u(1-u)\cdot P(u)\right]}+1-\alpha u(1-u)^n+\alpha u\overbrace{(1-u)^{n}} \\
+    &=\lambda(1-u)^{n+1}-\lambda\underbrace{(1-u)^{n+1}}+1-\alpha u(1-u)^n+\alpha u(1-u)^{n}\\
+    &=1
+\end{split}
+\end{equation*}
+\end{proof}
+\begin{prop}\label{chap3:pro3}
+{\bf(拟对称性)\quad}一般$n$次$\lambda\alpha\beta-B$基函数不具有n次Bernstein基函数的对称性,但在$\alpha=\beta$时,$\lambda\alpha\beta-B$基函数具有严格的对称性.即$T_{i,n}(1-u)=T_{n-i,n}(u),i=0,1,\cdots,n.$
+\end{prop}
+\begin{proof}
+从基函数\ref{chap3:ji1}的形式上，易知上述性质成立.
+\end{proof}
+
+\begin{figure*}[!ht]
+\centering
+   \subfigure[2阶基函数]
+   {
+   \includegraphics[width=0.27\textwidth,bb=0 0 297 230]{figures/base2.png}
+   }
+    \hspace{0.0002\textwidth}
+  \subfigure[4阶基函数]
+  {
+  \includegraphics[width=0.27\textwidth,bb=0 0 297 230]{figures/base4.png}
+   }
+    \hspace{0.0002\textwidth}
+  \subfigure[6阶基函数]
+  {
+    \includegraphics[width=0.27\textwidth,bb=0 0 297 230]{figures/base6.png}
+ }
+\caption{基函数的拟对称性,其中$\alpha=0.5,\beta=0.5,\lambda=-0.5$}
+ \label{fig1}
+  \end{figure*}
+
+\begin{prop}
+ {\bf(端点性)\quad}
+
+\begin{equation*}
+\centering
+ \begin{subequations}
+   T_{i,n}(0)=
+   \begin{cases}
+     \lambda+1 & i=0\\
+     -\lambda & i=\frac{n}{2}\\
+     0 & \text{others}
+   \end{cases}
+ \end{subequations}
+ \hspace{0.1\textwidth}
+ \begin{subequations}
+   T_{i,n}(0)=
+   \begin{cases}
+     \lambda+1 & i=0\\
+     -\lambda & i=\frac{n}{2}\\
+     0 & \text{others}
+   \end{cases}
+ \end{subequations}
+ \end{equation*}
+
+\begin{equation*}
+\centering
+ \begin{subequations}
+   T_{i,n}'(0)=
+   \begin{cases}
+     -(n+1)\lambda-n-\alpha & i=0\\
+    (n+1)\lambda+n+\alpha & i=1\\
+     0 & \text{others}
+   \end{cases}
+ \end{subequations}
+ \hspace{0.1\textwidth}
+ \begin{subequations}
+   T_{i,n}'(1)=
+   \begin{cases}
+     \alpha-\beta & i=\frac{n}{2}\\
+     -(n+1)\lambda-n-\alpha & i=n-1\\
+     (n+1)\lambda+n+\beta& i=n\\
+     0 & \text{others}
+   \end{cases}
+ \end{subequations}
+ \end{equation*}
+ \end{prop}
+通常我们常令$\alpha=\beta$,此时
+\begin{equation*}
+\centering
+   T_{i,n}'(1)=
+   \begin{cases}
+     -(n+1)\lambda-n-\alpha & i=n-1\\
+     (n+1)\lambda+n+\alpha& i=n\\
+     0 & \text{others}
+   \end{cases}
+ \end{equation*}
+因此我们会发现，从形式上看$T_{i,n}(u)$具有很对称的端点性质.
+
+
+\begin{prop}\label{chap3:pro4}
+{\bf(退化性)\quad}\par
+当$\lambda=\alpha=\beta=0$时,$\lambda\alpha\beta-B$基函数退化成Bernstein基函数.\par
+当$\lambda=0,\alpha=\beta$时,$\lambda\alpha\beta-B$基函数即为文献\cite{cheng1}当$n$为偶数时的基函数.\par
+当$\lambda=0,\alpha\neq\beta$时,$\lambda\alpha\beta-B$基函数退化成带两个形状参数的Bernstein基函数.其中当$n=2$时,即为文献\cite{yan2}的基函数.\par
+当$\lambda=\frac{-1}{2},\alpha=\beta=1$时,二次$\lambda\alpha\beta-B$基函数即为文献\cite{yan3}当$n=2$的基函数.
+\end{prop}
+
+\begin{prop}\label{chap3:pro5}
+{\bf(对形状参数$\lambda,\alpha,\beta$的单调性)\quad}\par
+1).关于$\lambda$,$T_{\frac{n}{2},n}(u)$单调递减,其他基函数单调递增;\par
+2).关于$\beta$,$T_{\frac{n}{2},n}(u)$单调递增,$T_{n,n}(u)$单调递减,其他基函数保持不变.\par
+3).关于$\alpha$,$T_{n,n}(u)$保持不变,而$T_{\frac{n}{2}(u)}$则当$\frac{n}{2}$为偶数时,$T_{\frac{n}{2}(u)}$单调递减;当$\frac{n}{2}(n>2)$为奇数时,存在$u^*\in(0,1)$,使$T_{\frac{n}{2}(u)}$在$(0,u^*)$递增,在$(u^*,1)$递减.\\
+其他基函数,当k为偶数时,$T_{k,n}(u)$单调递减;当k为奇数时$T_{k,n}(u)$单调递增.\par
+
+
+
+当$\lambda$递增时,$T_{\frac{n}{2},n}(u)$递减,其他基函数递增.\par
+当$\alpha$递增时,$T_{n,n}(u)$不变,$T_{\frac{n}{2}(u)}(n>4)$不单调,其他基函数,当k为偶数时,$T_{k,n}(u)$递减;当k为奇数时$T_{k,n}(u)$递增.\par
+当$\beta$递增时,$T_{\frac{n}{2},n}(u)$递增,$T_{n,n}(u)$递减,其他基函数保持不变.
+\end{prop}
+
+\begin{figure}[!ht]\centering
+\includegraphics[width=.3\textwidth,bb=0 0 395 329]{figures/lambda.png}
+\includegraphics[width=.3\textwidth,bb=0 0 395 329]{figures/alpha.png}
+\includegraphics[width=.3\textwidth,bb=0 0 395 329]{figures/beta.png}
+\caption{$\lambda,\alpha,\beta$对基函数的影响}
+ \label{fig2}
+\end{figure}
+\section{带3个形状参数的B$\acute{e}$zier曲线的定义及性质}
+\begin{definition}
+ 给定n个控制顶点$P_i(i=0,1,\cdots,n)\in R^2$或$R^3$,
+ \begin{equation}\label{chap3:cur1}
+   B(u)=\sum\limits_{i=0}^{n}P_iT_{i,n}(u),\quad u\in[0,1]
+ \end{equation}
+ 称$B(u)$为带3个形状参数$\lambda,\alpha,\beta$的四次$B\acute{e}zier$曲线，简称$\lambda\alpha\beta-B$曲线.
+\end{definition}
+$\lambda\alpha\beta-B$曲线有下列性质:\par
+\begin{prop}
+ {\bf(端点性)\quad}\label{chap3:cur2}
+ \begin{equation*}
+ \begin{cases}
+  B(0)&=P_0+\lambda(P_0-P_{\frac{n}{2}}) \\
+  B(1)   &=P_n+\lambda(P_n-P_{\frac{n}{2}})
+ \end{cases}
+ \end{equation*}
+ \begin{equation*}
+ \begin{cases}
+  B'(0)&=((n+1)\lambda+\alpha+n)(P_1-P_0)\\
+  B'(1)   &=\begin{subequations}
+  \begin{cases}
+  (3\lambda+2+\beta)(P_2-P_1)&\text{$n=2$}\\
+  (\alpha-\beta)P_{\frac{n}{2}}-((n+1)\lambda+n+\alpha)P_{n-1}+((n+1)\lambda+n+\beta)P_n&\text{$n\geq4$}
+  \end{cases}
+  \end{subequations}
+ \end{cases}
+ \end{equation*}
+ \end{prop}
+ 当$\alpha=\beta$时,显然：
+ \begin{equation*}
+   B'(1)=((n+1)\lambda+n+\beta)(P_n-P_{n-1}) n\geq2
+ \end{equation*}
+ 故当$\lambda=0$时,曲线插值于控制多边形的首末端点;当$\lambda=-1$时,曲线为闭合曲线;
+ 而且当$\alpha=\beta$时,曲线与控制多边形的首末边相切.
+ \begin{prop}
+  {\bf(凸包性)\quad}
+  由$\lambda\alpha\beta-B$基函数的非负性和单位分解性即可得到.
+ \end{prop}
+  \begin{prop}
+  {\bf(拟对称性)\quad}
+  一般n次$\lambda\alpha\beta-B$曲线不具有对称性,但当$\alpha=\beta$时,由控制多边形$P_0P_1P_2\cdots P_{n-1}p_n$和$P_{n}P_{n-1}\cdots P_{2}P_{1}P_0$定义
+  的n次$\lambda\alpha\beta-B$曲线是相同的,只是定向相反.
+ \end{prop}
+   \begin{prop}
+  {\bf(几何不变性)\quad}
+  n次$\lambda\alpha\beta-B$曲线仅依赖于控制顶点而与坐标系的位置和方向无关,即曲线的形状在坐标平移和旋转后不变.
+ \end{prop}
+ \section{带三个形状参数的$B\acute{e}zier$曲线光滑拼接}
+ 由于用$\lambda\alpha\beta-B$方法设计复杂的自由曲线时,难以用单一的一段曲线描述,因此在实际造型中,经常采用曲线拼接的方法.\par
+ 下面将针对两种特殊情况予以描述:\\
+{\bf 1).n=2}
+ \begin{theorem}
+ 设$P(u)=\sum\limits_{i=0}^{2}P_iT_{i,2}(u)$,$Q(w)=\sum\limits_{j=0}^{2}Q_jT_{j,2}(w)$,其中$P(u),Q(w)$中的参数分别是$\lambda_1,\alpha_1,\beta_1,\lambda_2,\alpha_2,\beta_2,$且$\lambda_{k}\in[-1,0),\alpha_k\in[0,1],\beta_k\in[0,1],k=1,2$,$P_1\neq P_2$时,则
+ $P(u)$和$Q(w)$在连接点处达到$G^1$连续的充要条件是:\par
+ 设$Q_0$分$P_1P_2$的比为$\gamma_0$,$Q_1$分$P_1P_2$的比为$\gamma_1$,则
+ \begin{equation}\label{chap3:cureq6}
+   \begin{cases}
+   \gamma_0&=\frac{-k(1+\lambda_1)(3\lambda_2+2+\alpha_2)-\lambda_2(3\lambda_1+2+\beta_1)}{k\lambda_1(3\lambda_2+2+\alpha_2)+\lambda_2(3\lambda_1+2+\beta_1)}\\
+   \gamma_1&=\frac{-k(3\lambda_2+2+\alpha_2)(1+\lambda_1)-(1+\lambda_2)(3\lambda_1+2+\beta_1)}{k\lambda_1(3\lambda_2+2+\alpha_2)+(1+\lambda_2)(3\lambda_1+2+\beta_1)}
+   \end{cases}
+ \end{equation}
+ 这里任取$k>0$.
+ \end{theorem}
+ \begin{proof}\text{}\\
+  { \bf　(必要性:)}
+   $P(u)$和$Q(w)$在连接点处达到$G^1$连续当且仅当如下条件成立:
+   \begin{equation*}
+     \begin{cases}
+     P(1)&=Q(0)\\
+     P'(1)&=kQ'(0)\text{,$k>0$}
+     \end{cases}
+   \end{equation*}
+  由曲线的端点性\ref{chap3:cur2}知,上式代入即有:
+  \begin{equation}\label{chap3:cureq4}
+     \begin{cases}
+     P_2+\lambda_1(P_2-P_1)&=Q_0+\lambda_2(Q_0-Q_1)\\
+     (3\lambda_1+2+\beta_1)(P_2-P_1)&=k(3\lambda_2+2+\alpha_2)(Q_1-Q_0)
+     \end{cases}
+   \end{equation}
+  由定比分点的定义知:
+    \begin{equation}\label{chap3:cureq1}
+  \begin{cases}
+   Q_0&=\frac{1}{1+\gamma_0}P_1+\frac{\gamma_0}{1+\gamma_0}P_2\\
+   Q_1&=\frac{1}{1+\gamma_1}P_1+\frac{\gamma_1}{1+\gamma_1}P_2
+    \end{cases}
+  \end{equation}
+此时:\par
+   由\eqref{chap3:cureq1}知:
+   \begin{equation}\label{chap3:cureq3}
+     Q_0-Q_1=\frac{\gamma_1-\gamma_0}{(1+\gamma_0)(1+\gamma_1)}(P_1-P_2)
+   \end{equation}
+  将\eqref{chap3:cureq3}及\eqref{chap3:cureq1}代入\ref{chap3:cureq4}有:\par
+  当$P_1\neq P_2$时,
+  \begin{equation}\label{chap3:cureq5}
+  \begin{cases}
+   \lambda_2(\gamma_0-\gamma_1)&= (1+\gamma_1)(1+\lambda_1+\lambda_1\gamma_0)\\
+   \frac{3\lambda_1+2+\beta_1}{3\lambda_2+2+\alpha_2}&=k\cdot\frac{\gamma_1-\gamma_0}{(1+\gamma_0)(1+\gamma_1)}
+  \end{cases}
+  \end{equation}
+  直接求解以上方程\eqref{chap3:cureq5},即可得到结论.\\
+     { \bf　(充分性:)}
+    实际上,必要性证明的所有步骤都是可逆的,所以充分性是显然的.
+ \end{proof}
+\begin{example}
+取$k=1$($C^1$连续),$\alpha_2=\beta_1,\lambda_1=\lambda_2=-1/4$,其他参数任意,将参数代入\eqref{chap3:cureq6}中,则此时$\gamma_0=1,\gamma_1=-3.$如图所示,两曲线在连接处$C^1$连续.
+\begin{figure}[!ht]\centering
+\includegraphics[width=.35\textwidth,bb=0 0 300 245]{figures/pinjie.png}
+\caption{两段2次$\lambda\alpha\beta-B$曲线的拼接}
+ \label{chap:curfig1}
+\end{figure}
+\end{example}
+
+ {\bf\noindent 2).$\lambda=0,\alpha=\beta$}\\
+ 此时:
+ \begin{equation*}
+\centering
+ \begin{subequations}
+   \begin{cases}
+     B(0) &= P_0\\
+     B(1) &= P_n
+   \end{cases}
+ \end{subequations}
+ \hspace{0.1\textwidth}
+ \begin{subequations}
+    \begin{cases}
+     B'(0) & =(n+\alpha)(P_1-P_0)\\
+    B'(1) & =(n+\alpha)(P_n-P_{n-1})
+   \end{cases}
+ \end{subequations}
+ \end{equation*}
+ \begin{theorem}
+ 设$r_1(u)=\sum\limits_{i=0}^{n}P_iT_{i,n}(u)$,$r_2(w)=\sum\limits_{j=0}^{n}Q_jT_{j,n}(w)$,其中$P(u),Q(w)$中的参数分别是$\lambda_1=0,\alpha_1=\beta_1,\lambda_2=0,\alpha_2=\beta_2,0\leq u,w\leq1$且$\alpha_k\in[0,1],k=1,2$时,则\\
+1). $P(u)$和$Q(w)$在连接点处达到$G^0$连续的充要条件是:
+ \begin{equation}\label{chap3:cureq7}
+      r_1(1)=r_2(0)\Leftrightarrow P_n=Q_0.
+ \end{equation}
+2).$P(u)$和$Q(w)$在连接点处达到$G^1$连续的充要条件是:
+ \begin{equation}\label{chap3:cureq7}
+      r_1'(1)=k\cdot r_2'(0)(k>0)\Leftrightarrow (n+\alpha_1)(P_n-P_{n-1})=k\cdot (n+\alpha_2)(Q_1-Q_0).
+ \end{equation}
+ \end{theorem}
+ 显然当$P_{n-1},P(n)(=Q_0),Q_1$共线时,两曲线达到$G^1$连续。\par
+ 进一步地,若$P_n-P_{n-1}=k\cdot(Q_1-Q_0)$时,取$\alpha_1=\frac{n+\alpha_2}{k}-n$或$\alpha_2=(n+\alpha_1)k-n$,可使$r_1'(1)=r_2'(0)$，从而两曲线在连接处达到$C^1$连续.这也是带参数的$B\acute{e}zier$曲线的优点，对于传统的$B\acute{e}zier$曲线,一旦控制顶点确定后,曲线就确定了,无法继续调整.
+ \begin{example}
+ 我们分别绘制如下曲线，按照上面的方法进行了拼接，绘制了形似花瓶轮廓的曲线.
+\begin{figure*}[!ht]
+\centering
+   \subfigure[2次$\lambda\alpha\beta-B$曲线拼接绘制的花瓶]
+   {
+   \includegraphics[width=.3\textwidth,bb=0 0 251 284]{figures/huapin2.png}
+   }
+    \hspace{0.0002\textwidth}
+  \subfigure[2次和4次$\lambda\alpha\beta-B$曲线拼接绘制的花瓶]
+  {
+ \includegraphics[width=.3\textwidth,bb=0 0 256 276]{figures/huapin42.png}
+   }
+    \hspace{0.0002\textwidth}
+  \subfigure[6次和4次$\lambda\alpha\beta-B$曲线拼接绘制的花瓶]
+  {
+   \includegraphics[width=.3\textwidth,bb=0 0 277 282]{figures/huapin64.png}
+ }
+  \end{figure*}
+
+ \end{example}
+\section{曲线的应用实例}
+\subsection{形状参数$\lambda,\alpha,\beta$对曲线的调节作用}
+图\ref{chap:curfig2}为形状参数对曲线的局部作用,其中图\ref{chap:curfig2}(a)所示为当$\alpha,\beta$不变时,$\lambda$减小时曲线从两侧向上移动靠近控制点的情形,
+其中曲线$\alpha=\beta=0.5$,$\lambda$分别为$0.00,-0.20,-0.50,-0.70,-0.86$;图\ref{chap:curfig2}(b)所示为当$\beta,\lambda$不变时,$\alpha$增大时曲线从两侧向上
+移动靠近控制点的情形,其中曲线$\lambda=0,\beta=1.0$,$\alpha$分别为$0.00,0.30,0.50,0.80$;图\ref{chap:curfig2}(c)所示为当$\alpha,\lambda$不变时,$\beta$增大时曲线从两侧向上移动靠近控制点的情形,其中曲线$\lambda=0,\alpha=0.1$,$\beta$分别为$0.10,0.30,0.50,0.80$;
+\begin{figure}[!ht]\centering
+\includegraphics[width=.3\textwidth,bb=0 0 400 312]{figures/lambda_alpha_beta1.PNG}
+\includegraphics[width=.3\textwidth,bb=0 0 374 291]{figures/alpha_lambda_beta1.png}
+\includegraphics[width=.3\textwidth,bb=0 0 369 296]{figures/beta_alpha_lambda.png}
+\caption{$\lambda,\alpha,\beta$对曲线的局部调节作用}
+ \label{chap:curfig2}
+\end{figure}
+\subsection{曲线设计中的参数调整实例}
+\begin{example}
+图\ref{chap:curfig3}中取$n=2$,每个菱形的对角线和两条邻边为控制多边形生成5条曲线，且每段曲线均取$\alpha=0.5,\beta=0.4$,从靠近对角线的曲线开始取$\lambda$依次取$-0.1 -0.3 -0.5 -0.7 -0.9$,最后生成花纹图案.
+\begin{figure}[!ht]\centering
+\includegraphics[width=.3\textwidth,bb=0 0 330 276]{figures/flower/flower_2.png}
+\caption{花纹图案}
+ \label{chap:curfig3}
+\end{figure}
+\end{example}
+\begin{example}
+图\ref{chap:curfig4}中取$n=4$,每个菱形为控制多边形生成5条曲线，且每段曲线均取$\lambda=0.0,\beta=1.0$,$\alpha$取值见图,最后生成蝴蝶结图案.
+\begin{figure}[!ht]\centering
+\includegraphics[width=.3\textwidth,bb=0 0 330 276]{figures/flower/alpha_flower.PNG}
+\caption{调节$\alpha$生成蝴蝶结图案}
+ \label{chap:curfig4}
+\end{figure}
+\end{example}
+\begin{example}
+图\ref{chap:curfig5}中取$n=4$,每个菱形为控制多边形生成5条曲线，且每段曲线均取$\lambda=0.0,\alpha=0.0$,$\beta$取值见图,最后生成蝴蝶结图案.
+\begin{figure}[!ht]\centering
+\includegraphics[width=.3\textwidth,bb=0 0 330 276]{figures/flower/beta_flower.PNG}
+\caption{调节$\beta$生成蝴蝶结图案}
+ \label{chap:curfig5}
+\end{figure}
+\end{example}
+\begin{example}
+图\ref{chap:curfig6}中取$n=6$,每个六边形为控制多边形生成5条曲线，且每段曲线均取$\alpha=0.5,\beta=0.5$,从靠近中心点的曲线开始取$\lambda$依次取$0,-0.2,-0.3,-0.5,-0.6,-0.71$,最后生成蝴蝶结图案.
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=.3\textwidth,bb=0 0 438 340]{figures/flower/flower_6.png}
+\caption{调节$\lambda$生成蝴蝶结图案}
+ \label{chap:curfig6}
+\end{figure}
+\end{example}

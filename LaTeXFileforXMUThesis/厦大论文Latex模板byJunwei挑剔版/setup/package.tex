@@ -1,0 +1,158 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   LaTeX File for Doctor (Master) Thesis of Xiamen University
+%   LaTeX + CJK && Texlive + CJK 厦门大学博士（硕士）论文模板
+%   Based on Ying Pan's Template for PKU
+%   Version: 1.00
+%   Last Update: 2008-10-25
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Copyright 2008-2009  by  Xu Junwei       (aogust@hotmail.com)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   LaTeX File for Doctor (Master) Thesis of Tsinghua University
+%   LaTeX + CJK     清华大学博士（硕士）论文模板
+%   Based on Wang Tianshu's Template for XJTU
+%   Version: 1.51
+%   Last Update: 2004-01-15
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Copyright 2002-2004  by  Lei Wang (BaconChina)       (bcpub@sina.com)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   LaTeX File for phd thesis of xi'an Jiao Tong University
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Copyright 2002  by  Wang Tianshu    (tswang@asia.com)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% 引用的宏包和相应的定义
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\a{false}
+\ifx\a\useyap
+\usepackage[dvipdf,
+            CJKbookmarks=true,
+            bookmarksnumbered=true,
+            bookmarksopen=true,
+            colorlinks=flase,
+            citecolor=blue,
+            linkcolor=red,
+            anchorcolor=green,
+            urlcolor=blue
+            ]{hyperref}
+\else
+\usepackage[dvipdfmx,
+            CJKbookmarks=true,
+            bookmarksnumbered=true,
+            bookmarksopen=true,
+            colorlinks=false,
+            citecolor=blue,
+            linkcolor=red,
+            anchorcolor=green,
+            urlcolor=blue
+            ]{hyperref}
+%\AtBeginDvi{\special{pdf:tounicode GBK-EUC-UCS2}} % GBK -> Unicode
+\fi
+%===图片处理宏包=============================
+\usepackage{hyperref}
+\usepackage{graphicx}   %使用JPG图形
+\usepackage{graphics}
+\usepackage{subfigure}  % 并列的图形
+\usepackage{color}      % 支持彩色
+\usepackage{epsfig}     % eps图像
+\usepackage{indentfirst}% 首行缩进宏包
+
+% 版面控制宏包，定义规定的版面尺寸============
+\usepackage[%paperwidth=18.4cm, paperheight= 26cm,
+            body={14.6true cm,22.0true cm},
+            twosideshift=0 pt,
+            %headheight=1.0true cm
+            ]{geometry}
+%\usepackage[top=2cm,bottom=2.0cm,left=2.2cm,right=2.2cm,includehead,includefoot%
+%            ]{geometry}                 % 页面设置
+
+% 中文支持宏包
+\usepackage{CJK}
+
+\usepackage[perpage,symbol]{footmisc}% 脚注控制
+
+\usepackage{amsmath}    % AMSLaTeX宏包 用来排出更加漂亮的公式
+\usepackage{amssymb}
+\usepackage{mathrsfs}   % 不同于\mathcal or \mathfrak 之类的英文花体字体
+
+% 定理类环境宏包，其中 amsmath 选项用来兼容 AMS LaTeX 的宏包
+\usepackage[amsmath,thmmarks]{ntheorem}
+
+% 因为图形可浮动到当前页的顶部，所以它可能会出现
+% 在它所在文本的前面. 要防止这种情况，可使用 flafter
+% 宏包
+%\usepackage{flafter}
+
+%浮动图形控制宏包
+%允许上一个section的浮动图形出现在下一个section的开始部分
+%该宏包提供处理浮动对象的 \FloatBarrier 命令，使所有未处
+%理的浮动图形立即被处理
+\usepackage[below]{placeins}
+
+\usepackage{floatflt}   % 图文混排用宏包
+\usepackage{rotating}   % 图形和表格的控制
+\usepackage{type1cm}    % tex1cm宏包，控制字体的大小
+\usepackage[sf]{titlesec}% 控制标题的宏包
+\usepackage{titletoc}   % 控制目录的宏包
+
+% 处理数学公式中的黑斜体的宏包
+\usepackage{bm}         % 处理数学公式中的黑斜体的宏包
+\usepackage{amsmath}    % AMSLaTeX宏包 用来排出更加漂亮的公式
+\usepackage{amssymb}    % AMSLaTeX宏包 用来排出更加漂亮的公式
+%\usepackage{mathrsfs}  % 不同于\mathcal or \mathfrak 之类的英文花体字体
+\usepackage[amsmath,thmmarks]{ntheorem} % 定理类环境宏包，其中 amsmath 选项
+                                        % 用来兼容 AMS LaTeX 的宏包
+\usepackage{subeqnarray} %多个子方程(1-1a)(1-1b)
+%\iffalse 以下是一个例子
+%\begin{subeqnarray}
+%\label{eqw} \slabel{eq0}
+% x & = & a \times b \\
+%\slabel{eq1}
+% & = & z + t\\
+%\slabel{eq2}
+% & = & z + t
+%\end{subeqnarray}
+%\fi
+
+%可将浮动对象放置到文件的最后
+%\usepackage{endfloat}
+
+% fancyhdr宏包 页眉和页脚的相关定义==========================
+\usepackage[sf]{titlesec}   % 控制标题的宏包,配合命令在后面,
+\usepackage{fancyhdr}
+\usepackage{fancyref}
+%\usepackage{pageno}
+%\usepackage{cite}          % 支持引用的宏包
+\usepackage[numbers,sort&compress]{natbib}  %% 支持引用缩写的宏包
+%\usepackage{hypernat}
+
+
+\usepackage{caption2}       %浮动图形和表格标题样式
+\usepackage{layouts}        % 打印当前页面格式的宏包
+\usepackage{times}          % 使用Times字体的宏包
+
+% use url.sty
+\usepackage{url}
+
+\usepackage{setspace}       % 定制表格和图形的多行标题行距
+\usepackage{supertabular}   % 使用跨页表格的宏包
+\usepackage{tabularx}       %可以换行的表格
+\usepackage{booktabs}       %\toprule、\midrule 和 \bottomrule，可分别对表格顶部、中部和底部使用不同粗细的水平线
+\usepackage{array}          %固定列宽可以使用array宏包的p{2cm}系列命令，需要指定水平对齐方式，可以使用下面的形式: >{\centering}p{2cm}
+
+\usepackage{makeidx}        % 生成索引
+\usepackage{listings}       %支持编程语言源代码的宏包
+\usepackage{xcolor}         % 语法加亮
+%\NeedsTeXFormat{LaTeX2e}

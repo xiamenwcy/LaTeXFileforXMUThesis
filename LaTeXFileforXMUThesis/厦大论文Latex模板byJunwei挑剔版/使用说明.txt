@@ -1,0 +1,79 @@
+===================================================
+本挑剔版本着完美主义的精神进行修改。
+去了摘要、目录的页眉，将文献中英文名称也改这小写（使用GBTNLangB.bst）
+===================================================
+测试平台：
+
+1,windows XP + CTeX-2.4.6-Full
+2,Ubuntu Linux 8.04 + Texlive + Kile 2.0
+
+在以上平台圴测试通过，Linux生成的PDF文件偏大。另外Latex生成的书签是乱码，需要gbk2uni转换。
+gbk2uni下载链接(只需要下载gbk2uni.c和gbk2uni.h两个文件)：
+http://lsec.cc.ac.cn/cgi-bin/viewcvs.cgi/cct/cct/
+或
+http://218.93.248.110/d/fid/80d091c2c0ce9dc687e33c3355e1e0fc5f22c77070d80000/sid/db74a6f0ef/fn/gbk2uni.tar.bz2
+
+使用方法：
+下载gbk2uni.c和gbk2uni.h,编译生成gbk2uni可执行文件。
+ # gcc -o gbk2uni gbk2uni.c
+ # chmod 777 gbk2uni
+ # cp gbk2uni /usr/local/bin/
+
+Linux命令行编译顺序如下：
+$ latex   main.tex
+$ bibtex  main.tex
+$ latex   main.tex
+$ gbk2uni main.out
+$ latex   main.tex
+$ dvipdfm main.dvi
+
+DOS用批处理编译的话与些相似(省略了扩展名)：
+latex	 main
+bibtex	 main
+latex	 main
+gbk2uni	 main
+latex	 main
+dvipdfmx main
+
+main.tex:主程序
+clean.bat:windows清除临时文件的批处理文件
+clean.sh:Linux下清除临时文件的脚本文件
+
+body:主要内容,参考文献
+	chap01-….tex：主要章节
+	reference.bib：参考文献
+preface:前言,声明
+	c_abstract.tex：中文摘要
+	e_abstract.tex：英文摘要
+	cover.tex:封面的内容
+appendix:附录,致谢
+	acknowledgements.tex：致谢
+	chap01a-….tex：附录
+setup:格式设置
+	package.tex：引用的宏包和相应的定义
+	format.tex：主文档的格式定
+	chinesebst.bst：参考文献格式，需要自己标注文献类型，修订其中的加粗和标点。
+	GBTNLangC.bst：参考文献格式，依据GBT7714修改，不排序，英文名字名在前，不大写，无"s.n."标示。
+	GBTNLangC.bst：参考文献格式，依据GBT7714修改，不排序，英文名字名在前，无"s.n."标示。
+	GBTNLang.bst：参考文献格式，依据GBT7714修改，不排序，英文名字姓在前，内容不详处加注"s.n."标示。
+	GBTAYLang.bst：参考文献格式，依据GBT7714修改，排序，内容不详处加注"s.n."标示。
+	推荐chinesebst,或GBTNLangC
+
+
+2009-4-16按照厦大最新要求修改。有的格式要求厦大并没有明文规定，需要的话需要自己定制。
+如本模板默认奇数页眉是章，偶数页是节,置中：
+\fancyhead[CO]{\CJKfamily{song}\wuhao\leftmark}
+\fancyhead[CE]{\CJKfamily{song}\wuhao\rightmark}
+\fancyfoot[CE,CO]{--~\thepage~--}%页码页脚置中
+需要修改为偶数页眉是论文题目，奇数页是章修改为下面的：
+\fancyhead[CO]{\CJKfamily{song}\wuhao @\leftmark}
+\fancyhead[CE]{\CJKfamily{song}\wuhao 论文题目}
+\fancyfoot[CE,CO]{--~\thepage~--}%页码页脚置中
+需要修改为奇数页眉是论文题目，偶数页是章修改为下面的：
+\fancyhead[CO]{\CJKfamily{song}\wuhao 论文题目}
+\fancyhead[CE]{\CJKfamily{song}\wuhao\leftmark}
+
+谢谢何海鹰与王秀颖同学参与测试修正。
+
+
+2009年04月16日

@@ -1,0 +1,94 @@
+\chapter{有关说明}
+\label{chap2}
+
+\section{工程树(Project Tree)}
+一本书或一个报告通常会有许多部分组成，将它们放在同一个LATEX文件中编绎是不明智的：
+费时而易产生混乱！同我们搞课题一样，我们制作一个工程项目，其中分成若干个小文件。
+你可以在WinEdt编辑器中的Project菜单下将原有打开的所有文件保存为一个项目或新建一个项目，
+方法类似于文件的操作. 一本书的不同章节或同一类文章应归为同一项目下,
+这样打开相应的项目就会同时打开项目下(关闭前已打开的)所有文件。
+
+一个项目下只有主文件与子文件(对应于章节内容)是有联系的，它们是按目录树排列的。展开这个目
+录树的方法是：
+\begin{enumerate}
+  \item 让项目的主文件成为当前文件
+  \item 点击菜单上的目录树图标(显示为Project Tree),这时在左侧打开一个目录树浏览器
+  \item 点击左侧带有加号的按钮(显示为Set Main File)
+  \item 点击目录树浏览器上方的目录树图标(显示为Build Tree)
+\end{enumerate}
+(你也可以通过主菜单Project下的条目来完成。)
+ 这时由一个主文件及若干个子文件组成的一个完整目录树展现在你面前，
+ 你的论文一目了然：目录树的上面是你论文(书或报告等)的内容，
+ 每一部分对应于一个LATEX文件，点击它就会打开相应的源文件(成为当前文件)。
+ 全文(即整个项目)编绎后Yap定位并浏览此当前文件的内容。
+
+目录树的下面是目录表(TOC)，通过它我们也可以打开或定位于相应章节的内容的开始处。
+方法是将鼠标放在你想要看的内容上，按鼠标右键，再点击Find。
+如果这一部分内容有更多的小节，就可通过双击(或按按鼠标右键，再点击Expand Branch)来进一步展开目录树。
+
+要注意的是：在当前的工程项目下你(可以打开但)不能编绎另一个不属于此项目的LATEX文件,
+除非先关闭原来的工程项目。
+\section{相关文档}
+\label{chap2:doc}
+
+本文中用到的\LaTeX 命令主要参考了\TeX Guru的《\LaTeX
+2$\varepsilon$用户手册》~\cite{TEXGURU99}。此外，还参考了Micheal
+Shell为IEEE \LaTeX 模板所写的说明文档~\cite{SHELL02}。
+
+其它可供参考的文档有：《\LaTeX Notes v 1.20》，《一份不太简短的\LaTeX2$\varepsilon$介绍》\ucite{partl}，
+《电脑助教--细说\LaTeX 制作课件》，《大家来学\LaTeX》\ucite{liguozheng}(繁体)，
+《\LaTeX2$\varepsilon$中西文排版指南》。
+
+参考文献格式制作：《Customizing Bibliographic Style Files》\ucite{daly1999cbs}，
+《Tame the BeaST--The B to X of BibTEX》\ucite{markey2005tb}。
+
+有关 fancyhdr 宏包的使用，参考了 Piet van Oostrum 撰写，ifuleyou @
+bbs.ctex.org 翻译的《\LaTeX下的页面布局》~\cite{OOSTRUM01}。
+有关titlesec和titlesoc宏包的使用，
+则参考了Javier Bezos的《The titlesec and titletoc Packages》~\ucite{BEZOS02}。
+有关图形图表等浮动对象的设置与处理，
+参见《\LaTeX2$\varepsilon$插图指南》~\cite{WANG00}。
+
+\LaTeX 学习站：\\
+\TeX/\LaTeX~常用宏包~：~\url{http://www.ctex.org/documents/packages/}\\
+\LaTeX 2e~插图指南~：~\url{http://www.ctex.org/documents/latex/graphics/graphics.html}\\
+
+\section{使用须知}
+\label{chap2:usage}
+
+作者假定模板的用户具备基本的使用\LaTeX
+的能力和知识。由于时间和知识所限，作者无法提供细致的范例和文档，
+特别是对于章节层次、图形、表格、公式等\LaTeX
+基本元素的使用方法，恕作者无法提供解答。请参考《\LaTeX
+2$\varepsilon$用户手册》~\cite{TEXGURU99}。
+
+hyperref宏包被用来生成带有链接的pdf文档。但是，使用后编译得出的dvi文件
+不能在Yap里打开。建议用户在使用时，先把这一段注释掉，以方便平时的编辑
+与核对，待打印或提交时再使用hyperref宏包生成pdf。有关这一问题的详细叙
+述，请参见CTEX论坛的系列讨论(http://bbs.ctex.org/cgi-bin/view.cgi?forum=9\&topic=48)。
+
+将模板包解开后，用户只要修改模板中相应的文字部分，然后编译main.tex即可得到符合
+标准的论文。
+
+\section{下载和更新}
+\label{chap2:update}
+
+下载地址为：
+\url{http://se.xmu.edu.cn/blog/Files/zhujianping/LaTeXFileforXMUThesis.rar}
+
+欢迎用户对模板进行改进，包括对范例文档进行丰富。
+
+\section{常见问题}
+
+{\hei 问：为什么用pdflatex编译会出错？
+
+答：}由于宏包之间的兼容性不同，这个模板是用latex编译的。要生成pdf文件，
+只要在编译成功后使用dvi2pdf命令或dvi2ps,ps2pdf命令即可。
+
+{\hei 问：为什么引用文献的地方出现的是问号，还有很多错误信息？
+
+答：}先用latex编译，然后bibtex编译，最后latex两次，应该就可以了。因为
+从.bib文件中生成的引文项是与论文内容相关的，修改论文引文后需要用latex编译，
+知道有哪些引文项，然后用bibtex编译，从.bib文件中生成实际的引文部分，最后
+用latex编译，在论文中实现对参考文献的引用。
+

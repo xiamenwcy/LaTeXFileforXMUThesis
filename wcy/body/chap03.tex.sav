@@ -1,0 +1,300 @@
+\chapter{三次$F-B\acute{e}zier$曲线的几何分类及特征图}
+\label{chap3}
+本文主要根据三次$F-B\acute{e}zier$曲线的拐点、尖点和环点，对其进行几何分类.文中首先阐述三次广义$F-$曲线的几何分类法，基于此，首次探究三次$F-B\acute{e}zier$ 曲线几何分类.先讨论C 类型的$F-B\acute{e}zier$曲线几何分类，得出其分类充要条件.同时，文中指出H类型的F-Bézier曲线分类可以转化为C类型的$F-B\acute{e}zier$曲线分类.之后，文中说明四个控制点的三个固定，让第四个控制点自由变化时，得到$F-B\acute{e}zier$曲线分类特征曲线，特征曲线将平面分割成区域，得到相应的特征图.当自由变化的控制点不同，得到的特征图也不同.最后，说明特征图是由平面与特征空间相交而得.
+
+\section{广义$F-$曲线分类}
+对于对于平面曲线$Q(t)$,在一点$P$的曲率大小等于内切圆半径的倒数,方向由切点指向内切圆圆心.对于参数曲线$Q(t)=(x(t),y(t))$,其曲率可以表示为:
+\begin{equation}\label{chap3:eq1}
+  \kappa=\frac{x'(t)y''(t)-x''(t)y'(t)}{(x'(t)^2+y'(t)^2)^{3/2}}
+\end{equation}
+\par 注意到曲率的分子与零的大小关系决定了曲线的拐点情况,能表征曲线特征,把它记为$F(t)$,叫做特征函数:
+\begin{equation}\label{chap3:eq2}
+ F(t)=x'(t)y''(t)-x''(t)y'(t).
+\end{equation}
+\begin{definition}
+设$Q_j(j=0,1,2,3)$形如$(x_j,y_j)$(其中$x_j,y_j\in R,j=0,1,2,3$)为平面上的点向量,称下列曲线为广义$F-$曲线:
+\begin{equation}\label{chap3:eq3}
+  Q(t)=P_0\sin(\alpha t)+P_1\cos(\alpha t)+P_2\alpha t+P_3,t\in(-\infty,+\infty),\alpha\in(0,\pi)\cup iR^+
+\end{equation}
+\par 当$\alpha\in(0,\pi)$时,$P_j=Q_j(j=0,1,2,3)$;当$\alpha\in iR^+$时,$P_j=i\times Q_j(j=0,2)$(此处$i$为虚数单位),$P_j=Q_j(j=1,3)$.
+\end{definition}\par
+对曲线求导
+\begin{equation*}
+ \begin{split}
+ Q'(t)&=P_0\alpha \cos(\alpha t)-P_1\alpha \sin(\alpha t)+P_2\alpha\\
+  Q''(t) &=-P_0\alpha^2\sin(\alpha t)-P_1\alpha^2\cos(\alpha t)
+ \end{split}
+\end{equation*}
+曲线的特征函数为
+\begin{equation*}
+  \begin{split}
+     F(t) & =\det(Q'(t),Q''(t)) \\
+       & =\alpha^3(-\det(P_0,P_1)+\cos(\alpha t)\det(P_1,P_2)-\sin(\alpha t)\det(P_2,P_0))\\
+       &=\alpha^3(-B\sin(\alpha t)+A\cos(\alpha t)-C)
+   \end{split}
+\end{equation*}
+其中,
+\begin{equation*}
+  A=\det(P_1,P_2),B=\det(P_2,P_0),C=\det(P_0,P_1),
+\end{equation*}
+利用公式
+\begin{equation*}
+\begin{split}
+\sin(\alpha t) & =2\tan(\alpha t/2)/(1+\tan^2(\alpha t/2)), \\
+ \cos(\alpha t)&=(1-\tan^2(\alpha t/2))/(1+\tan^2(\alpha t/2)),
+   \end{split}
+\end{equation*}
+可将上式变为:
+\begin{equation}\label{chap3:eq4}
+ F(t) =-\frac{\alpha^3}{1+\tan^2(\alpha t/2)}((C+A)\tan^2(\alpha t/2)+2B\tan(\alpha t/2)+(C-A)). \\
+\end{equation}
+\par 对于曲线$Q(t)$是否有拐点,由曲率公式可知,等价于$F(t)=0$的根的问题\ucite{l_duan}:\\
+{\bf a)\quad}\label{chap3:ref1}$Q(t)$有两个拐点$\Leftrightarrow F(t)=0$有两个实根,即
+\begin{equation*}
+  \Delta=4(A^2+B^2-C^2)>0,C+A\neq0.
+\end{equation*}
+{\bf b)\quad}\label{chap3:ref2} $Q(t)$有一个尖点$\Leftrightarrow F(t)=0$有一个重根,即
+\begin{equation*}
+  \Delta=4(A^2+B^2-C^2)=0,C+A\neq0.
+\end{equation*}
+{\bf c)\quad}\label{chap3:ref3} $Q(t)$有一个环点$\Leftrightarrow F(t)=0$无实根,即
+\begin{equation*}
+  \Delta=4(A^2+B^2-C^2)<0,C+A\neq0.
+\end{equation*}
+{\bf d)\quad}\label{chap3:ref4} $Q(t)$有一个拐点$\Leftrightarrow F(t)=0$是关于$\tan(\alpha t/2)$的一次函数,即
+\begin{equation*}
+  A+C=0,B\neq0
+\end{equation*}
+\section{三次$F-B\acute{e}zier$曲线分类}
+上一节我们给出了广义三次$F-$曲线\eqref{chap3:eq3}的定义及形状分类的重要条件,接下来我们先来考虑三次$F-$曲线的情况.\par
+\begin{definition}
+三次$F-$曲线\ucite{l_zhang}由张纪文提出,我们定义其一般形式为:
+\begin{equation}\label{chap3:eq5}
+  Q(t)=P_0\sin(\alpha t)+P_1\cos(\alpha t)+P_2\alpha t+P_3,t\in[0,1],\alpha\in(0,\pi)\cup iR^+
+\end{equation}
+\end{definition}
+\par 可见,三次$F-$曲线是广义$F-$曲线的一部分,其上存在尖点,拐地和环点的充要条件实际上是广义$F-$曲线上相应条件的进一步限制.
+段\ucite{l_duan}在文中已经做了详细的讨论,后面我们会直接引用其部分结果(3.7-3.9式).\par
+三次$F-B\acute{e}zier$曲线,可以在三次$F-$曲线的分类结果上，通过变换得到.它是F-曲线中更加特殊的一类曲线，其一般形式为(1)式. zhang\ucite{l_zhang}根据c的取值范围,把$F-B\acute{e}zier$曲线分为C类型$(c\in(0,1))$和H类型$(c\in(1,+\infty))$.H类曲线本身含有复数，在讨论其分类时，先做等价变换.\par
+\begin{definition}
+称如下曲线为$F-B\acute{e}zier$曲线:
+\begin{equation}\label{chap3:eq6}
+  \begin{split}
+    Q(t) &=\frac{1}{\alpha-S_{\alpha}}(\sin(\alpha t,\cos(\alpha t),\alpha t,1))) \\
+      & \times \begin{bmatrix} C_\alpha & 1-C_\alpha-M&M&-1\\ -S_\alpha & \alpha(1-k)M&-\alpha kM&0\\-1&M&-M&1\\\alpha&-\alpha(1-k)M&\alpha kM&0 \end{bmatrix}\begin{bmatrix}p_0\\p_1\\p_2\\p_3\end{bmatrix}
+  \end{split}
+\end{equation}
+其中,
+\begin{equation*}
+C_\alpha=cos(\alpha)=2c^2-1,
+\end{equation*}
+\begin{equation*}
+0\leq t\leq 1,\alpha=2\arccos(c),S_\alpha=\sin(\alpha)=2c\sqrt{1-c^2}
+\end{equation*}
+\begin{equation*}
+  k:=\frac{\alpha-S_\alpha}{\alpha(1-C_\alpha)},M:=\begin{cases}
+                                                    1 & ,c=0 \\
+                                                    \frac{S_\alpha}{\alpha(1-2k)}   & others
+                                                   \end{cases}
+\end{equation*}\par
+\end{definition}
+$F-B\acute{e}zier$曲线有许多与$B\acute{e}zier$曲线类似的优良性质\ucite{l_zhang,l_zhang2}，比如奇点的仿射不变性，变差缩减性等等.图\ref{chap3_1}中对比了相同控制顶点参数为$c=0.732$ 的$F-B\acute{e}zier$曲线和$B\acute{e}zier$曲线.
+\begin{figure*}[!ht]
+\centering
+\includegraphics[width=0.5\textwidth,bb=0 0 415 357]{figures/duibi.png}
+\caption{相同控制顶点$F-B\acute{e}zier$曲线与$B\acute{e}zier$曲线}
+ \label{chap3_1}
+  \end{figure*}
+特征函数是讨论曲线奇点的重要依据.$C$类型和$H$类型$F-B\acute{e}zier$曲线，其特征函数可以归纳为二次函数形式:
+\begin{equation}\label{chap3:eq7}
+F(t)=b\cdot(C+A)\cdot \tan^2(\alpha t/2)+2\cdot b\cdot B\cdot \tan(\alpha t/2)+b\cdot(C-A).
+\end{equation}
+其中,
+\begin{equation*}
+b=
+  \begin{cases}
+    -\frac{\alpha^3}{1+\tan^2(\alpha t/2)}, & \text{$C$类型}\\
+     \frac{\beta^3i}{1-\tanh(\beta t/2)},& \text{$H$类型}
+  \end{cases}
+\end{equation*}
+且$\alpha=i\cdot\beta$.
+\subsection{$C$类型三次$F-B\acute{e}zier$曲线}
+$C$类型($c\in(0,1)$,此时$\alpha\in(0,\pi)$)三次$F-B\acute{e}zier$曲线所含参数都是实数,与$F-$曲线具有类似的形式.为了更加方便地做$C$类型$F-B\acute{e}zier$曲线的分类,我们把
+\ref{chap3:eq6} 写成如下形式
+\begin{equation*}
+  Q(t)=P_0\sin(\alpha t)+P_1\cos(\alpha t)+P_2\alpha t+P_3\cdot 1,
+\end{equation*}
+其中,
+\begin{equation*}
+\begin{split}
+    P_0 & =\frac{1}{\alpha-S_\alpha}(C_\alpha p_0-p_1(C_\alpha+M-1)+Mp_2-p_3),\\
+    P_1 &= \frac{1}{\alpha-S_\alpha}(-S_\alpha p_0-\alpha M(k-1)p_1-\alpha Mkp_2),\\
+    P_2&=\frac{1}{\alpha-S_\alpha}(-p_0+Mp_1-Mp_2+p_3) \\
+    P_3&= \frac{1}{\alpha-S_\alpha}(\alpha p_0+\alpha M(k-1)p_1+\alpha Mkp_2)
+  \end{split}
+\end{equation*}
+对曲线求导$Q'(t),Q''(t)$,通过计算，得到曲线的特征函数为
+\begin{equation*}
+  F(t)=-\frac{\alpha^3}{1+\tan^2(\alpha t/2)}((C+A)\tan^2(\alpha t/2)+2B\tan(\alpha t/2)+(C-A)).
+\end{equation*}
+由于$Q(t)$变量很多,仿射变换不改变曲线的奇异点,我们把三次曲线的三个顶点仿射变换到三个固定点:$p_0=(0,0),p_1=(0,1),p_2=(1,1)$, 这样的曲线称为{\bf 标准曲线}.原曲线和标准曲线有相同的奇异点.由于三个控制顶点固定了,标准曲线的奇异点只由第四个控制点决定，即第四个控制点决定了曲线的奇异点.第四个控制顶点为$p_3=(p_{3x},p_{3y})$,化简得到
+\begin{equation*}
+\begin{split}
+  P_0 & =\frac{1}{\alpha-S_\alpha}(M-p_{3x},1-C_\alpha-p_{3y}),\\
+    P_1 &= \frac{1}{\alpha-S_\alpha}(-\alpha kM,-\alpha(2k-1)M),\\
+    P_2&=\frac{1}{\alpha-S_\alpha}(-M+p_{3x},p_{3y}), \\
+    P_3&= \frac{1}{\alpha-S_\alpha}(\alpha kM,\alpha(2k-1)M).
+\end{split}
+\end{equation*}\par
+上述$F-Bezier$曲线的定义域为$t\in[0,1]$,而广义$F-$曲线的定义域为$t\in(-\infty,+\infty)$,故我们可以先$F-Bezier$的定义域延拓到$(-\infty,+\infty)$(称延拓后的曲线为{\bf 广义$F-Bezier$曲线}),这样就可以直接使用广义$F-$曲线的形状分类结果,然后再采取截取的方法来求解$F-Bezier$ 曲线的奇点.\par
+例如,取$c=0.732$,则得到广义$F-Bezier$曲线的形状分类情况,如图\ref{chap3_2}所示,特别地,$\Delta=0$是一条抛物线,以$p_{3x}=1$为对称轴,且过$(1,1)$点:
+\begin{figure*}[!ht]
+\centering
+\includegraphics[width=0.5\textwidth,bb=0 0 320 272]{figures/total.png}
+\caption{广义$F-Bezier$曲线的特征曲线剖分的特征图}
+ \label{chap3_2}
+  \end{figure*}\\
+下面我们将按奇点类型分别讨论三次$F-B\acute{e}zier$曲线的分类情况,部分结果我们直接引用段\ucite{l_duan}在文中的结果:\par
+{\bf a)\quad 尖点:\quad} $Q(t)$有一个尖点等价于$F(t)=0$有一个重根,
+\begin{equation*}
+\begin{cases}
+     A^2+B^2-C^2=0,& \\
+     0<-B/(C+A)<\tan(\alpha/2),&\\
+     C+A\neq0.&
+   \end{cases}
+\end{equation*}
+\begin{figure*}[!ht]
+\centering
+\includegraphics[width=0.5\textwidth,bb=0 0 326 282]{figures/cusp.png}
+\caption{一个尖点的特征曲线}
+ \label{chap3_3}
+  \end{figure*}\par
+  如图\ref{chap3_3},展现了一个尖点的特征曲线,即黑色标注的抛物线的一半.实际上,还可以从截取的角度来看,尖点线相对于$t\in[0,1]$的部分可以
+  使用$F-B\acute{e}zier$曲线的变差递减性获得.因为尖点是一个退化的环,因此通过尖点的直线可以与曲线相交3次,但是一个凸多边形仅可能与一条直线相交两次.对于标准形式,如果$p_3$在尖点线上,当$p_{3x}>1$时,控制多边形总是凸的.为了符合变差递减性,因此抛物线部分对应$p_{3x}\leq1$.也即图\ref{chap3_3}所展示的结果.\par
+{\bf b)\quad 环点:\quad}$Q(t)$有一个环点,则必然存在$t_1\neq t_2\in[0,1]$,使$Q(t_1)=Q(t_2)$.
+即
+\begin{equation*}
+  P_0\sin(\alpha t_1)+P_1\cos(\alpha t_1)+P_2(\alpha t_1)+P_3=P_0\sin(\alpha t_2)+P_1\cos(\alpha t_2)+P_2(\alpha t_2)+P_3
+\end{equation*}
+即:存在$t_1\neq t_2$,使得:
+\begin{equation*}
+  \begin{cases}
+  C(\sin(\alpha t_1)-\sin(\alpha t_2))&=A\alpha(t_1-t_2)\\
+  C(\cos(\alpha t_1)-\cos(\alpha t_2))&=B\alpha(t_1-t_2)
+  \end{cases}
+\end{equation*}
+令
+\begin{equation*}
+  x=\alpha\frac{t_1-t_2}{2},y=\alpha\frac{t_1+t_2}{2}
+\end{equation*}
+则方程组可化简为:
+\begin{equation*}
+  \begin{cases}
+  C\cos(y)\sin(x)=Ax&\\
+  -C\sin(x)\sin(y)=Bx&
+  \end{cases}
+\end{equation*}
+可得下列方程:
+\begin{equation*}
+  \begin{cases}
+  \frac{\sin^2(x)}{x^2}=\frac{A^2+B^2}{C^2}&\\
+  \tan(y)=-\frac{B}{A}&
+  \end{cases}
+\end{equation*}
+由于此时$\alpha\in(0,\pi)$,所以$x,y\in(0,\alpha)\subset(0,\pi)$,因此有:
+\begin{equation}\label{chap3n_1}
+  \begin{cases}
+  \frac{\sin(x)}{x}=\frac{\sqrt{A^2+B^2}}{\left|C \right|}&\\
+  \cos(y)=\frac{A\cdot sgn(C)}{\sqrt{A^2+B^2}}&\\
+  \sin(y)=\frac{-B\cdot sgn(C)}{\sqrt{A^2+B^2}}&
+  \end{cases}
+\end{equation}\par
+我们知道从广义$F-B\acute{e}zier$曲线的特征图\ref{chap3_2}上截取的$F-B\acute{e}zier$曲线的环域仅仅出现在$t\in[0,1]$的区域,因此
+新区域的边界对应着那些相汇于$t=0$或者$t=1$的点的轨迹,即如图\ref{chap3_4}所示:
+\begin{figure}[!ht]
+\centering
+ \includegraphics[width=0.9\textwidth,bb=0 0 572 285]{figures/loop_t12.png}
+\caption{环出现在$(a)t=0$和$(b)t=1$的$F-B\acute{e}zier$曲线}
+ \label{chap3_4}
+  \end{figure}\\
+当$t=0$时,令$t_2=0,t_1=t\in(0,1]$,因此:
+\begin{equation*}
+  x=\alpha\frac{t}{2},y=\alpha\frac{t}{2},
+\end{equation*}
+于是
+\begin{equation*}
+  x=y,x,y\in(0,\alpha)\subset(0,\pi)
+\end{equation*}
+易知$\frac{\sin(x)}{x}$在$(0,\pi)$内单调递减,因此
+\begin{equation*}
+  x=y\Leftrightarrow \frac{\sin(x)}{x}=\frac{\sin(y)}{y}
+\end{equation*}
+由公式\eqref{chap3n_1}知,代入可得:
+\begin{equation*}
+ \frac{\sqrt{A^2+B^2}}{\left|C\right|}=\frac{\frac{-B\cdot sgn(C)}{\sqrt{A^2+B^2}}}{\arccos(\frac{A\cdot sgn(C)}{\sqrt{A^2+B^2}})}
+\end{equation*}
+整理得:
+\begin{equation}\label{chap3n_2}
+  (A^2+B^2)\arccos(\frac{A\cdot sgn(C)}{\sqrt{A^2+B^2}})+BC=0
+\end{equation}\\
+当$t=1$时,令$t_1=1,t_2=t\in[0,1)$,因此:
+\begin{equation*}
+  x=\alpha\frac{1-t}{2},y=\alpha\frac{1+t}{2},
+\end{equation*}
+于是
+\begin{equation*}
+  x=\alpha-y,x,y\in(0,\alpha)\subset(0,\pi),\alpha-y\in(0,\alpha)\subset(0,\pi)
+\end{equation*}
+同理由$\frac{\sin(x)}{x}$在$(0,\pi)$内的单调递减性知
+\begin{equation*}
+  x=\alpha-y\Leftrightarrow \frac{\sin(x)}{x}=\frac{\sin(\alpha-y)}{\alpha-y}
+\end{equation*}
+由公式\eqref{chap3n_1}知,代入可得:
+\begin{equation*}
+ \frac{\sqrt{A^2+B^2}}{\left|C\right|}=\frac{\sin(\alpha-\arccos(\frac{A\cdot sgn(C)}{\sqrt{A^2+B^2}}))}{\alpha-\arccos(\frac{A\cdot sgn(C)}{\sqrt{A^2+B^2}})}
+\end{equation*}
+整理得:
+\begin{equation}\label{chap3n_3}
+  \sqrt{A^2+B^2}(\alpha-\arccos(\frac{A\cdot sgn(C)}{\sqrt{A^2+B^2}}))-\left|C\right|\sin(\alpha-\arccos(\frac{A\cdot sgn(C)}{\sqrt{A^2+B^2}}))=0
+\end{equation}
+综上方程\eqref{chap3n_2}和方程\eqref{chap3n_3}即为环域在$t=0$和$t=1$的边界.\par
+另外由文献\cite{l_duan}中(3.9)知,Q(t)有一个环点等价于:
+\begin{equation}\label{chap3n_4}
+ \begin{cases}
+   A^2+B^2-C^2<0&  \\
+    (A^2+B^2)\arccos(\frac{A\cdot sgn(C)}{\sqrt{A^2+B^2}})+BC\geq0  & \\
+     \sqrt{A^2+B^2}(\alpha-\arccos(\frac{A\cdot sgn(C)}{\sqrt{A^2+B^2}}))-\left|C\right|\sin(\alpha-\arccos(\frac{A\cdot sgn(C)}{\sqrt{A^2+B^2}}))\geq0\\
+     C+A\neq0
+ \end{cases}
+\end{equation}
+\begin{figure*}[!ht]
+\centering
+\includegraphics[width=0.52\textwidth,bb=0 0 320 272]{figures/loop.png}
+\caption{一个环点的特征曲线}
+ \label{chap3_5}
+  \end{figure*}\par
+  如图\ref{chap3_5},展现了一个环点的特征曲线,即被两条抛物线和一个圆弧包围的区域.\par
+{\bf c)\quad 拐点:}
+未裁剪的三次广义$F-B\acute{e}zier$曲线总是含有一个环或者两个拐点(忽略掉尖点线和单拐点线),而一个三次$F-B\acute{e}zier$曲线含有0个、1个或者2个拐点，则取决于
+$F(t)$的根是否落在区间$[0,1]$内.因此我们将拐点区域分为三种情况,如图\ref{chap3_6}所示:
+\begin{figure*}[!ht]
+\centering
+\includegraphics[width=0.52\textwidth,bb=0 0 316 272]{figures/inflection.png}
+\caption{三次广义$F-B\acute{e}zier$曲线的特征图,其中拐点区域被分成Region 0,1,2,分别对应着落在[0,1]区间内的拐点个数}
+ \label{chap3_6}
+  \end{figure*}\par
+{\bf Region 0.0个拐点.\quad}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

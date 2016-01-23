@@ -1,0 +1,164 @@
+%============================ 中文支持宏包 ==============================%
+\usepackage{CJK,CJKnumb}
+%====================== 图形和超链接支持宏包 ========================%
+\usepackage{graphicx}
+ %图形支持宏包 为了使用PDFLaTeX需要作相应判断
+%
+% 可以在转换为pdf文件时自动加入索引, dvi2ps 加入-z 参数
+% 为了支持pdftex 使用不同的宏包选项
+%当 bookmarksnumbered=true时，用pdflatex编译得到的PDF文件的书签不能正常显示，
+%可以通过应用gbk2uni.exe对 main.out 文件进行处理后再进行一次编译得到正常的书签.
+%若bookmarksnumbered=false则基本无此问题
+%\ifx\pdfoutput\undefined
+%\usepackage[dvips]{graphicx}
+%\usepackage[dvipdfm,%dvipdf,
+%            pdfstartview=FitH,
+%            CJKbookmarks=true,
+%            bookmarksnumbered=true,
+%            bookmarksopen=true,
+%            citecolor=blue    %改变目录、引用的颜色
+%            ,colorlinks=true
+%            ,pdfborder=000   %注释掉此项则交叉引用为彩色边框
+%           ]{hyperref}
+%\AtBeginDvi{\special{pdf:tounicode GBK-EUC-UCS2}} % GBK -> Unicode
+%\else
+%\usepackage[dvipdf,
+%            pdfstartview=FitH,
+%            CJKbookmarks=true,
+%            bookmarksnumbered=true,
+%            bookmarksopen=true,
+%            citecolor=blue   %改变目录、引用的颜色
+%            ,colorlinks=true
+%            ,pdfborder=000   %注释掉此项则交叉引用为彩色边框
+%        　 ]{hyperref}
+%\usepackage[pdftex]{graphicx}
+%\fi
+%
+%%                        定义PDF文档属性
+%\hypersetup{pdftitle={Ph.D Thesis},
+%  pdfsubject={LaTeX},
+%  pdfauthor={Shengqiang LAI},
+%  pdfkeywords={micro-trading strategy},
+%  %pdfpagemode={FullScreen},
+%  colorlinks={true}
+%  ,linkcolor={black} %改变目录、引用的颜色
+%  }
+
+\usepackage{color}      % 支持彩色
+\usepackage{subfigure}  % 支持子图
+\usepackage{floatflt}   % 图文混排用宏包
+\usepackage{lscape}     %旋转文字、图、表等
+\usepackage{rotating}   % 图形和表格的控制
+\usepackage{epsfig}
+\usepackage{flafter}    % 因为图形可浮动到当前页的顶部，所以它可能会出现
+                        % 在它所在文本的前面. 要防止这种情况，可使用 flafter
+                        % 宏包
+
+\usepackage[below]{placeins}    %浮动图形控制宏包
+                                %允许上一个section的浮动图形出现在下一个
+                                %section的开始部分该宏包提供处理浮动对象
+                                %的 \FloatBarrier 命令，使所有未处理的浮动
+                                %图形立即被处理
+%\usepackage{endfloat}  %可将浮动对象放置到文件的最后
+%\usepackage{overpic}   %将LaTeX对象放置在图上
+%\usepackage{pstricks}  %Postscript macrosfor Generic TeX(我没用过，据说很强)
+%\usepackage{bez123}
+
+%============================表格支持宏包=================================%
+\usepackage{rotating}   % 用法 \begin{sidewaystable}....\end{sidewaystable}
+                        % 即可旋转表格
+\usepackage{longtable}  % 支持长表格
+\usepackage{tabls}
+\usepackage{multirow}   % 表格多行合并, 矩阵的边注
+\usepackage{colortbl}   % 彩色表格
+\usepackage{dcolumn}    % 让表格中将小数点对齐
+\usepackage{hhline}     % 在表格中用 \hhline 得到的结果就如同\hline
+                        % 或 \hline\hline,当然在和垂直线的交叉处会有所不同。
+\usepackage{slashbox}   % 可在表格的单元格中画上一斜线。
+
+%\newcommand{\centpcol}{\leftskip\fill \rightskip\fill}%制表使可用p{ncm}设置栏宽,还使本栏居中
+
+%\iffalse 举例
+%  \begin{tabular}{|l|c|c|} \hline
+%    & \multicolumn{2}{c|}{MRD} \\ \cline{2-3}
+%   & \multicolumn{1}{p{3.5cm}|}{\centpcol Same as previous response} &
+%     \multicolumn{1}{p{3.5cm}|}{\centpcol Different from previous response}\\
+%   \hline
+%    Observed frequency & 966 & 148 \\
+%    Expected frequency & 1066 & 48 \\ \hline
+%    \multicolumn{3}{c}{${\chi}^2 = 213.97,\quad \mathit{d.f.}=1,\quad p<0.001$}
+%  \end{tabular}
+%\fi
+
+
+%============================版面控制宏包=================================%
+\usepackage[top=1.8cm,bottom=2cm,left=2.3cm,right=2.3cm,includehead,includefoot]{geometry} % 页面设置
+
+\usepackage{indentfirst}               %首行缩进宏包
+%\usepackage[symbol,perpage]{footmisc} %脚注控制可使得每页的脚注编码重新复位，
+                                       %但可能导致脚注的链接不正确
+\usepackage{fancyhdr}                  % fancyhdr宏包 页眉和页脚的相关定义
+\usepackage{lastpage}                  %自动记录总页数宏包，计数器为 LastPage
+                                       %注意大小写
+\usepackage{pageno}     % 章首页的页眉处理, 可以改为自己想要的形式
+%\iffalse \makeatletter
+%\renewcommand{\ps@plain}{%
+%   \renewcommand{\@mkboth}{\@gobbletwo}%
+%   \renewcommand{\@evenhead}{\reset@font\sf -- \thepage -- \hfil}%
+%   \renewcommand{\@oddhead}{\reset@font\sf\hfil -- \thepage --}%
+%   \renewcommand{\@evenfoot}{}%
+%   \renewcommand{\@oddfoot}{}
+%} \makeatother \fi
+
+
+%======================== 数学公式相关宏包 ===============================%
+%\usepackage{bm}         % 处理数学公式中的黑斜体的宏包
+\usepackage{amsmath}    % AMSLaTeX宏包 用来排出更加漂亮的公式
+\usepackage{amssymb}    % AMSLaTeX宏包 用来排出更加漂亮的公式
+%\usepackage{mathrsfs}  % 不同于\mathcal or \mathfrak 之类的英文花体字体
+\usepackage[amsmath,thmmarks]{ntheorem} % 定理类环境宏包，其中 amsmath 选项
+                                        % 用来兼容 AMS LaTeX 的宏包
+\usepackage{subeqnarray} %多个子方程(1-1a)(1-1b)
+%\iffalse 以下是一个例子
+%\begin{subeqnarray}
+%\label{eqw} \slabel{eq0}
+% x & = & a \times b \\
+%\slabel{eq1}
+% & = & z + t\\
+%\slabel{eq2}
+% & = & z + t
+%\end{subeqnarray}
+%\fi
+
+%=============================标题与列表宏包=============================%
+\usepackage[sf]{titlesec}   % 控制标题的宏包,配合命令在后面,
+                            % 将cjk+miktex+scrbook+gb.cap下的章的标题号,
+                            % 比如~``第二章 ＸＸＸ''位置于中心
+
+%%\usepackage[sort&compress,numbers]{natbib}  % 支持引用的宏包  不会用!!!
+%%\usepackage{hypernat}  不会用!!!
+
+\usepackage{cite}           %this package can sort cited tage and use a centerline to combine a sequential ordered tags
+\usepackage{enumerate}      % 改变列表标号样式宏包 其后可接选项[a,A,i,I,1]
+\usepackage{caption}        % 浮动图形和表格标题样式,可选项为[scriptsize,footnotesize,centerlast]
+%\usepackage{setspace}      % 图形和表格的标题如果是多行，行距比较大,可以加宏包
+%\usepackage{pifont}         % 有很漂亮的带圈的各种数字符号使用
+
+
+%=========================== 特殊文本元素宏包 ==============================%
+\usepackage{nicefrac}   % 在正文文本中排版分式时，可以用它来得到较好的排版效果。
+\usepackage{units}      % 基于 nicefrac 宏包，提供对计量单位比较美观的排版效果。
+\usepackage{soul}       % 支持对单词加上下划线或其每个字母在一定的宽度内均匀散布
+\usepackage{altfont}    % 使用该宏包, 可以在一个宏包中使用多种不同的字体,
+                        % 包括PSNFSS 和 MFNFSS
+%\usepackage{prelim2e}  % 可以在每页页脚下方标记出本文档的版本信息等
+%\usepackage{a0size}     %自由定义字号,在后面“字号设置”中可设置到107pt为止的大字体
+
+%%=================================源代码宏包================================%
+%\usepackage{listings}
+
+%%=================================建立索引宏包================================%
+%\usepackage{makeidx}
+%\makeindex
+%===============================定制目录宏包===================================%
+\usepackage{titletoc}

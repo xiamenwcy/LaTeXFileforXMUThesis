@@ -1,0 +1,85 @@
+%\renewcommand{\lstlistlistingname}{源代码目录}
+\renewcommand{\lstlistingname}{源代码}
+%\lstlistoflistings
+\lstset{language=Matlab,escapeinside=``}
+\lstset{xleftmargin=3em,xrightmargin=1em}
+\lstset{frame=TBLR}
+\lstset{commentstyle=\color{blue},keywordstyle=\color{red},caption=\lstname,breaklines=true,columns=flexible,mathescape=true}
+\lstset{framexleftmargin=2em,framexrightmargin=1em,framextopmargin=1em,framexbottommargin=1em}
+\lstdefinestyle{numbers}{numbers=left,stepnumber=1,numberstyle=\small,numbersep=1em}
+\chapter{程序源代码}
+
+源代码使用的是 \texttt{listings} 宏包。版本为
+1.0（2002年10月）。如果您的不是，\textbf{可能}无法编译，
+可以下载最新红包或不要编译本章内容。如果你要在其他章节使用本宏包，可以将本章导言区的内容拷贝过去。
+
+\textbf{注意:}
+源代码使用中文时需要放在``中间,而且每个lstlisting环境支持的代码行数与版芯大小有关，本模板大约33-35行。
+
+Matlab源代码示例
+\lstset{language=Matlab}
+\begin{lstlisting}[style=numbers,caption={Matlab源代码},label={forMatlab}]
+function result = Bbase(i,k,u,t)
+%`文件名`Bbase.m:`第`i`段`k`次`B`样条基`,Deboor`递推递归算法`
+%t`为变量`,u(i)<=t<u(i+1),k=0`时`result=1;
+if k==0
+    if (u(i)<=t \&\& t<u(i+1))
+        result=1;
+        return;
+    else
+        result=0;
+        return;
+    end
+end
+    if u(i+k)-u(i)==0
+        alpha=0;
+    else
+        alpha=(t-u(i))/(u(i+k)-u(i));
+    end
+    if u(i+k+1)-u(i+1)==0
+         beta=0;
+    else
+        beta=(u(i+k+1)-t)/(u(i+k+1)-u(i+1));
+    end
+  result=alpha*Bbase(i,k-1,u,t)+beta*Bbase(i+1,k-1,u,t);
+end
+\end{lstlisting}
+
+\newpage
+C++源代码示例 \lstset{language=C++,escapeinside=``}
+
+\begin{lstlisting}[style=numbers,caption=C++源代码]
+#define S_FUNCTION_NAME controller_init #include "ttkernel.cpp"
+
+// Event-driven controller node
+class PD_Data { public:
+  // ctrl params
+  double K, Td, N, h, ad, bd;
+
+// ctrl states
+  double yold, Dold, u;
+};
+
+// controller code function
+double ctrl_code(int seg, void *data) {
+  double *m;
+  double r, y, P, D;
+  PD_Data* d = (PD_Data*) data;
+
+  switch(seg) {
+  case 1:
+    ttWait("packet");
+    return 0.0;
+
+  case 2:
+$\cdots\cdots\cdots\cdots\cdots\cdots$
+  case 3:
+    m = new double;
+    *m = d->u;
+    ttSendMsg(1, 2, m, 10); // Send 10 bytes to node 2 (actuator) on network 1
+    ttSetNextSegment(1); // loop and wait for new packet
+    return 0.0;
+  }
+}
+
+\end{lstlisting}

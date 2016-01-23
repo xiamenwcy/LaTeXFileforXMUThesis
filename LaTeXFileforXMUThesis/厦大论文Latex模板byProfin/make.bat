@@ -1,0 +1,24 @@
+@echo off
+pdflatex main.tex
+makeindex -o main.ind main.idx
+bibtex main
+pdflatex main.tex
+gbk2uni.exe main.out
+pdflatex main.tex
+del *.aux
+del *.toc
+del *.lof
+del *.lot
+del *.ilg
+del *.idx
+del *.ind
+del *.out
+del *.log
+del *.exa
+del body\*.aux
+del Appendix\*.aux
+del contents\*.aux
+del cover\*.aux
+del Preface\*.aux
+del Setup\*.aux
+@echo on

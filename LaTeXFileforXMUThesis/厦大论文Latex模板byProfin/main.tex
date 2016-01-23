@@ -1,0 +1,57 @@
+%draft 选项可以使插入的图形只显示外框，以加快预览速度。
+%fleqn 让公式左对齐。
+%\documentclass[11pt,openany,a4paper,twoside]{book}
+\documentclass[10pt,a4paper,twoside]{book}
+%\documentclass[11pt,a4paper,fleqn,openany,draft]{book}
+%============================ 引用的宏包 & preamble ==================================%
+\input{setup/package.tex}
+\begin{document}\begin{CJK*}{GBK}{song}
+\graphicspath{{figures/}}   %定义所有的eps文件在 figures 子目录下
+\input{setup/format.tex}
+\sloppy %放松拆行的限制解决中英文混排的断行问题，会加入间距，但不会影响断行
+
+%%%%%%============================= front matter ===================================%
+\frontmatter      %导言部分页码自动为罗马数字
+\renewcommand{\baselinestretch}{1.1}
+\setcounter{page}{1}
+\daxiaosi
+\include{body/CNabstract}
+\include{body/ENabstract}
+\dawuhao
+\thispagestyle{empty} %取消当前页眉页脚设置
+\fancyhead[CE,CO]{\wuhao 目~录} %奇数和偶数页相同header
+\makeatletter\renewcommand{\@dotsep}{0.4}\makeatother %目录中的点间距太大，改变 \@dotsep 的值可以减小
+\renewcommand{\baselinestretch}{1}
+\setcounter{tocdepth}{1} %显示目录的层次，1=section；2=subsection
+\tableofcontents
+
+%\fancyhead[CO]{\wuhao\chaptername\quad\leftmark}
+%\fancyhead[CO]{\wuhao 图例目录} %奇数和偶数页相同header
+%\listoffigures\addcontentsline{toc}{chapter}{图例目录}
+%\fancyhead[CO]{\wuhao 表格目录} %奇数和偶数页相同header
+%\listoftables\addcontentsline{toc}{chapter}{表格目录}
+\CJKnormal\daxiaosi
+%%%%=============================== Mainmatter  ================================%
+\mainmatter %进入正文页码自动变为阿拉伯数字章节计数器启动
+\fancyhead[CE]{\wuhao 高频数据交易策略与波动性分析}% 在book文件类别下C
+\fancyhead[CO]{\wuhao\chaptername\quad\leftmark}       %\leftmark自动存录各章之章名,
+\renewcommand{\baselinestretch}{1.2}
+%%%%input不重新起一页,include重起一页
+\include{body/ch1}
+\include{body/ch2}
+\include{body/ch_mktNeutral}
+\include{body/ch_conclusion}
+
+\begin{appendix}\input{setup/app_setting}
+\input{body/app1}
+\input{body/app2}
+\end{appendix}
+
+%=============================== Back matter ================================%
+\backmatter %结束章节自动编号
+\include{body/bib}
+\include{body/publications}
+\include{body/thanks}
+
+\end{CJK*}\end{document}
+%%%%%%%%%%%%%%%%%% End of the file  %%%%%%%%%%%%%%%%%%%%%%%%

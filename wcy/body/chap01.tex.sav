@@ -1,0 +1,131 @@
+
+\chapter{带形状参数的$B\acute{e}zier$曲线综述}
+\label{chap1}
+Bezier曲线由于结构简单、直观等而成为几何造型工业中表示曲线曲面的重要工具之一\ucite{shi1,wang1}.但Bezier曲线也有明显的缺点，如一旦给定控制顶点，则曲线就固定了。如要改变曲线的形状，就必须调整控制多边形，但这样做又可能偏离设计者的意图。为了弥补这一缺憾，人们开始想各种办法推广B$\acute{e}$zier曲线,文献
+\cite{yan1,yan2,yan3,cheng1,zhang1,zhang2,xi1,wu1,zeng,jiang,wang2,wangyou}等通过使用形状参数，使得B$\acute{e}$zier 曲线有了更大的自由度,可用来调节形状.各种
+带参数的$B\acute{e}zier$曲线构造各不相同,但是大致上可以分为三类,下面我们将具体分析这几类常用的带参曲线构造方法.
+\section{高阶带参调配函数}
+\label{chap1:sample1}
+这类构造方法以文献\cite{cheng1,xi1,wu1,zeng,yan1}为代表.它们的共同之处是所构造的基函数比相对应的$Bernstein-B\acute{e}zier$基函数高一阶或者多阶.所以通常称这类基函数为{\bf 调配函数}(但是为了方便起见，我们还是称之为基函数).这类基函数的构造可分为以下两类:\par
+{\bf 形式一、改造同类基函数的系数,使系数项增加若干参数.}\\
+例如,文献\cite{wu1}中引入了带一个参数的$B\acute{e}zier$基函数.而文献\cite{cheng1}在文献\cite{wu1}的基础上将之推广到n次。由于文章对n分为奇偶讨论，下面我们分别举例说明:\\
+当$n=2$时,文献\cite{cheng1}的基函数变为:
+\begin{equation}\label{chap1:eq1}
+\begin{cases}
+ b_{0,2}(t)&=(1-\lambda t)(1-t)^2\\
+ b_{1,2}(t) &=(2+\lambda)t(1-t)\\
+ b_{2,2}(t)&=(1-\lambda+\lambda t)t^2
+\end{cases}
+\end{equation}
+当$n=3$时,文献\cite{cheng1}的基函数变为:
+\begin{equation}\label{chap1:eq2}
+\begin{cases}
+ b_{0,3}(t)&=(1-\lambda t)(1-t)^3\\
+ b_{1,3}(t) &=\left[3+\lambda(1-t)\right]t(1-t)^2\\
+ b_{2,3}(t)&=(3+\lambda t)(1-t)t^2\\
+ b_{3,3}(t)&=(1-\lambda+\lambda t)t^3
+\end{cases}
+\end{equation}
+显然,与同类$B\acute{e}zier$基函数相比,以上构造仅仅在基函数的系数上增加了调配参数,而且使得增加参数后,除去原始$B\acute{e}zier$基函数的系数外，剩余带$\lambda$的函数和为0.这样新构造的基函数满足单位分解性.\par
+以上构造的基函数带有一个参数，难免调配起来不够灵活,为此有人\ucite{xi1,zeng}开始构造了带多个参数的广义$B\acute{e}zier$基函数.\par
+文献\cite{xi1}中将$n$次的$B\acute{e}zier$基函数添加了$n$个参数,使之增加了更多的自由度.为了方便与上面对比,我们也取了$n=2$和$n=3$次的广义基函数列出来.
+\begin{equation}\label{chap1:eq3}
+  \begin{cases}
+   b_{0,2}(t)&=(1-\lambda_1 t)(1-t)^2\\
+ b_{1,2}(t) &=\left[2+\lambda_1(1-t)+\lambda_2 t\right]t(1-t)\\
+ b_{2,2}(t)&=\left[1-\lambda_2(1-t)\right]t^2
+   \end{cases}
+\end{equation}
+
+\begin{equation}\label{chap1:eq4}
+  \begin{cases}
+   b_{0,3}(t)&=(1-\lambda_1 t)(1-t)^3\\
+ b_{1,3}(t) &=\left[3+\lambda_1(1-t)-\lambda_2 t\right]t(1-t)^2\\
+ b_{2,3}(t)&=\left[3+\lambda_2(1-t)+\lambda_3 t\right](1-t)t^2\\
+ b_{3,3}(t)&=\left[1-\lambda_3(1-t)\right]t^3
+   \end{cases}
+\end{equation}
+从上面的形式上看,同样是在原始$B\acute{e}zier$基函数的系数上增加了调配参数,而且为了实现单位分解性,每增加一个参数,就会在下一个基函数中增加相反的项以抵消上面增加的一项.\par
+文献\cite{zeng}也提出了将$n$次的$B\acute{e}zier$基函数添加了$n$个参数,使之增加了更多的自由度.同理我们列出$n=2$和$n=3$次的广义基函数.
+\begin{equation}\label{chap1:eq5}
+  \begin{cases}
+   b_{0,2}(t)&=(1-\lambda_1 t)(1-t)^2\\
+ b_{1,2}(t) &=\left[2+\lambda_1(1-t)-\lambda_2 t\right]t(1-t)\\
+ b_{2,2}(t)&=\left[1+\lambda_2(1-t)\right]t^2
+   \end{cases}
+\end{equation}
+
+\begin{equation}\label{chap1:eq6}
+  \begin{cases}
+   b_{0,3}(t)&=(1-\lambda_1 t)(1-t)^3\\
+ b_{1,3}(t) &=\left[3+\lambda_1(1-t)-\frac{3}{2}\cdot\lambda_2 t\right]t(1-t)^2\\
+ b_{2,3}(t)&=\left[3+\frac{3}{2}\cdot\lambda_2(1-t)-\lambda_3 t\right](1-t)t^2\\
+ b_{3,3}(t)&=\left[1+\lambda_3(1-t)\right]t^3
+   \end{cases}
+\end{equation}
+从以上形式上看,文献\cite{zeng}的方法和文献\cite{xi1}的方法本质上是同一种方法.\par
+{\bf 形式二、 利用高阶$B\acute{e}zier$基函数组合成带参的基函数}\\
+
+这方面的文章主要是文献\cite{yan1}.但是它仅构造了带两个参数的2次广义$B\acute{e}zier$曲线,我们利用同样的方法构造了带3个参数的3次广义$B\acute{e}zier$曲线.
+并将其推广到$n$次.下面我们先给出推广的$n$次广义$B\acute{e}zier$基函数的形式:
+\begin{definition}
+任取$n$个实数$\lambda_i,i=1,2,\cdots,n$,则称如下的多项式函数
+\begin{equation}\label{chap1:eq7}
+  \begin{cases}
+    b_{0,n}(t)&=B_{0,n+1}(t)+\lambda_1B_{1,n+1}(t)\\
+   b_{i,n}(t)&=(1-\lambda_i)B_{i,n+1}(t)+(1-\lambda_{i+1})B_{i+1,n+1}(t),i=1,\cdots,n-1\\
+    b_{n,n}(t)&=\lambda_nB_{n,n+1}(t)+B_{n+1,n+1}(t)\\
+  \end{cases}
+\end{equation}
+为带n个形状参数的广义$B\acute{e}zier$基函数,其中$\lambda_i(i=1,2,\cdots,n)$称作形状参数.
+\end{definition}
+从构造形式看,新的构造方法是将$n+1$阶的$B\acute{e}zier$基函数通过组合构成带参的$n$阶广义$B\acute{e}zier$基函数.
+下面我们仍然列出$n=2$和$n=3$次的广义基函数.
+\begin{equation}\label{chap1:eq8}
+  \begin{cases}
+   b_{0,2}(t)&=(1-t)^3+3\lambda_1t(1-t)^2=\left[1-(1-3\lambda_1)t\right](1-t)^2\\
+ b_{1,2}(t) &=3(1-\lambda_1)t(1-t)^2+3(1-\lambda_2)t^2(1-t)=3\left[(1-\lambda_1)-(\lambda_2-\lambda_1)t\right]t(1-t)\\
+ b_{2,2}(t)&=3\lambda_2t^2(1-t)+t^3=\left[3\lambda_2+(1-3\lambda_2)t\right]t^2
+   \end{cases}
+\end{equation}
+\begin{equation}\label{chap1:eq9}
+  \begin{cases}
+   b_{0,3}(t)&=(1-t)^4+4\lambda_1t(1-t)^3 =\left[1-(1-4\lambda_1)t\right](1-t)^3\\
+ b_{1,3}(t) &=4(1-\lambda_1)t(1-t)^3+6(1-\lambda_2)t^2(1-t)^2 =\left[4(1-\lambda_1)+(2+4\lambda_1-6\lambda_2)t\right]t(1-t)^2\\
+ b_{2,3}(t)&=6\lambda_2t^2(1-t)^2+4(1-\lambda_3)t^3(1-t) =\left[6\lambda_2+(4-4\lambda_3-6\lambda_2)t\right](1-t)t^2\\
+ b_{3,3}(t)&=4\lambda_3t^3(1-t)+t^4 =\left[4\lambda_3+(1-4\lambda_3)t\right]t^3
+   \end{cases}
+\end{equation}
+\begin{theorem}
+    形式一和形式二本质上是相同的。因此两类带n个参数的广义$B\acute{e}zier$基函数都可以归结于形式二.
+\end{theorem}
+\begin{proof}
+我们此处仅证明$n=2$和$n=3$时的情况,至于任意的n次情况同理证明.
+记形式一的参数为$\lambda_i'$,形式二的参数为$\lambda_i$.
+先看$n=2$,
+事实上,令$\lambda_1'=1-3\lambda_1,\lambda_2'=1-3\lambda_2$,则可证明基函数\eqref{chap1:eq5}和\eqref{chap1:eq8}是可以相互转换的.
+再看$n=3$
+事实上,令$\lambda_1'=1-4\lambda_1,\lambda_2'=6\lambda_2-3,\lambda_3'=1-4\lambda_2$,则可证明基函数\eqref{chap1:eq5}和\eqref{chap1:eq8}是可以相互转换的.
+对于任意n次，我们仍然可以找到一系列等式使得\{\lambda_i'\}与\{\lambda_i\}可以相互表出,因此形式一和形式二本质上是相同的.
+\end{proof}
+\begin{theorem}
+对于形式二,令$$
+
+
+
+
+\end{theorem}
+
+\section{同阶带参广义$Bernstein-B\acute{e}zier$基函数}
+\label{chap1:sample2}
+
+
+
+
+
+
+
+
+
+\section{其他构造方法}
+\label{chap1:sample3}

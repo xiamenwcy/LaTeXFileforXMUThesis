@@ -1,0 +1,151 @@
+\chapter{有关说明}
+\label{chap2}
+
+\section{更新记录}
+\label{chap2:update}
+
+V1.00 \quad 2008-11-28，星期日
+
+依据《厦门大学研究生学位论文格式规范》在北京大学博士（硕士）论文模板基础上修改为厦大博士（硕士）论文模板。
+
+V1.20 \quad 2009-04-16，星期四
+    \begin{denselist}[]
+        \item {依据最新的格式修改版权声明。}
+        \item {修改了页边距。}
+        \item {修改页眉页脚，使居中，并且章的第一页没页眉。}
+        \item {修改参考文献格式，引用格式，并提供几种方式供选择。没有在文中标注引用的文献全部也全部显示出来。}
+        \item {修改列表间距。}
+        \item {增加公式表格示例。}
+    \end{denselist}
+
+
+\section{软件环境}
+\label{chap2:config}
+
+windows系列下使用CTEX测试通过，Linux下Latex+CJK测试通过，Linux下的kile是不错的编辑器。另外，不使用
+完全安装，而只要补齐相应需要的package，也是可以的。
+
+
+\section{相关文档}
+\label{chap2:doc}
+
+本文中用到的\LaTeX 命令主要参考了\TeX Guru的《\LaTeX
+2$\varepsilon$用户手册》~\cite{TEXGURU99}。此外，还参考了Micheal
+Shell为IEEE \LaTeX 模板所写的说明文档~\cite{SHELL02}。
+
+有关fancyhdr宏包的使用，参考了Piet van Oostrum撰写，ifuleyou @
+bbs.ctex.org翻译的《\LaTeX下的页面布局》~\cite{OOSTRUM01}。
+有关titlesec和titlesoc宏包的使用，则参考了Javier Bezos的《The
+titlesec and titletoc
+Packages》~\ucite{BEZOS02}。有关图形图表等浮动对象的设置与处理，参见《\LaTeX
+2$\varepsilon$插图指南》~\cite{WANG00}
+
+\section{使用须知}
+\label{chap2:usage}
+
+作者假定模板的用户具备基本的使用\LaTeX
+的能力和知识。由于时间和知识所限，作者无法提供细致的范例和文档，
+特别是对于章节层次、图形、表格、公式等\LaTeX
+基本元素的使用方法，恕作者无法提供解答。请参考《\LaTeX
+2$\varepsilon$用户手册》~\cite{TEXGURU99}。
+
+hyperref宏包被用来生成带有链接的pdf文档。但是，使用后编译得出的dvi文件
+不能在Yap里打开。建议用户在使用时，先把这一段注释掉，以方便平时的编辑
+与核对，待打印或提交时再使用hyperref宏包生成pdf。有关这一问题的详细叙
+述，请参见CTEX论坛的系列讨论(http://bbs.ctex.org/cgi-bin/view.cgi?forum=9\&topic=48)。
+
+将模板包解开后，用户只要修改模板中相应的文字部分，然后编译main.tex即可得到符合
+标准的论文。模板包中各个目录和文件的内容是：
+
+\begin{tabularx}{0.9\textwidth}{lXlX}
+main.tex & 主文件\\
+gb\_452.cap & 　{aloft的gb.cap的4.5.2版，包含了中文格式有关的基本定义。作者对原始版本进行了少量修改，所以请勿用其它版本覆盖}\\
+gb\_452.cpx & 　{与gb\_452.cap内容完全一样的文件。不同的\LaTeX 系统要求不同的文件后缀，两个文件保证了兼容性}\\
+clean.bat &
+　{用来删除所有编辑和编译时产生的临时文件}\\
+appendix & 　{附录部分，包括致谢，附录章节和个人简历及发表的文章列表等}\\
+body &  正文部分，包括正文各章节和结论，参考文献.bib文件\\
+figures & 存放所有插图的目录\\
+preface  & 　{封面，中文摘要，英文摘要，主要符号表等}\\
+reference & 存放参考文献.bib文件的目录\\
+setup     &
+　{存放设置文件的目录，其中package.tex包含对宏包的引用和参数设置，format.tex包含具体的格式调整和定义}\\
+\end{tabularx}
+
+长表格示例
+
+\begin{center}
+    \tablefirsthead{%
+      \hline
+      \multicolumn{1}{|c}{ Number} &
+      \multicolumn{1}{c}{Number$^2$} &
+      Number$^4$ &
+      \multicolumn{1}{c|}{Number!} \\
+      \hline}
+    \tablehead{%
+
+      \multicolumn{4}{r}{\small\sl continued from previous page}\\
+      \hline
+      \multicolumn{1}{|c}{Number} &
+      \multicolumn{1}{c}{Number$^2$} &
+      Number$^4$ &
+      \multicolumn{1}{c|}{Number!} \\
+      \hline}
+    \tabletail{%
+
+      \hline
+      \multicolumn{4}{r}{\small\sl continued on next page}\\
+      }
+    \tablelasttail{}
+    \topcaption{此方法为研究关系型法则的入门算法，可说是研究关系型法则时}
+    \begin{supertabular}{|r|r|r|r|}
+    1   &  1  &        1  &           1 \\
+    2   &     4  &       16  &           2    \\
+    3   &     9  &       81  &           6    \\
+    4   &    16  &      256  &          24    \\
+    5   &    25  &      625  &         120    \\
+    6   &    36  &     1296  &         720    \\
+    7   &    49  &     2401  &        5040    \\
+    8   &    64  &     4096  &       40320    \\
+    9   &    81  &     6561  &      362880    \\
+    10  &   100  &    10000  &     3628800    \\
+    11  &   121  &    14641  &    39916800    \\
+    12  &   144  &    20736  &   479001600    \\[.5cm]
+    \hline & & & \\
+    13  &   169  &    28561  &  6.22702080E+9 \\[1cm]
+    14  &   196  &    38416  &  8.71782912E+10\\
+    15  &   225  &    50625  &  1.30767437E+12\\
+    16  &   256  &    65536  &  2.09227899E+13\\
+    17  &   289  &    83521  &  3.55687428E+14\\[5mm]
+    18  &   324  &   104976  &  6.40237370E+15\\
+    19  &   361  &   130321  &  1.21645100E+17\\
+    20  &   400  &   160000  &  2.43290200E+18\\\hline
+    \multicolumn{4}{l}{\footnotesize {\xiaowu \song 资料来源：}}\\
+    \end{supertabular}
+\end{center}
+
+\section{下载和更新}
+\label{chap2:update}
+
+下载地址为：
+http://se.xmu.edu.cn/blog/Files/zhujianping/LaTeXFileforXMUThesis.rar/
+
+欢迎用户对模板进行改进，包括对范例文档进行丰富。
+
+\section{常见问题}
+
+{\hei 问：为什么用pdflatex编译会出错？
+
+答：}由于宏包之间的兼容性不同，这个模板是用latex编译的。要生成pdf文件，
+只要在编译成功后使用dvi2pdf命令或dvi2ps,ps2pdf命令即可。
+
+{\hei 问：为什么引用文献的地方出现的是问号，还有很多错误信息？
+
+答：}先用latex编译，然后bibtex编译，最后latex两次，应该就可以了。因为
+从.bib文件中生成的引文项是与论文内容相关的，修改论文引文后需要用latex编译，
+知道有哪些引文项，然后用bibtex编译，从.bib文件中生成实际的引文部分，最后
+用latex编译，在论文中实现对参考文献的引用。
+
+\section{引用文献示例}
+
+张尧庭\cite{zhang} 丁文祥\ucite{Ding}
