@@ -1,0 +1,156 @@
+\begin{thebibliography}{28}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{Ron~Goldman~原著, 吴宗宪,刘剑平,曹沅~译}(2002)]{goldman}
+\textsc{{Ron~Goldman~原著, 吴宗宪,刘剑平,曹沅~译}}.
+\newblock
+\newblock 金字塔算法:曲线曲面几何模型的动态编程处理[M].电子工业出版社, 2002.
+
+\bibitem[{T.N.Xiang,Z.Liu,W.F.Wang,P.Jiang}(2010)]{jiang}
+\textsc{{T.N.Xiang,Z.Liu,W.F.Wang,P.Jiang}}.
+\newblock A Novel Extension of B$\acute{e}$zier Curves and Surfaces of the Same
+  Degree[J].
+\newblock Journal of Information $\&$ Computational Science, 2010,
+  7(10):2080--2089.
+
+\bibitem[王仁宏等(2008)]{wang1}
+\textsc{王仁宏等}.
+\newblock 计算几何教程[M].
+\newblock
+\newblock 2.科学出版社, 2008.
+
+\bibitem[施法中(2013)]{shi1}
+\textsc{施法中}.
+\newblock
+\newblock 计算机辅助几何设计与非均匀B样条[M].高等教育出版社, 2013.
+
+\bibitem[{严兰兰,梁烔丰}(2008)]{yan1}
+\textsc{{严兰兰,梁烔丰}}.
+\newblock 形状可调二次B$\acute{e}$zier曲线[J].
+\newblock 东华理工大学学报(自然科学版), 2008, 31(1).
+
+\bibitem[吴晓勤(2006)]{wu2}
+\textsc{吴晓勤}.
+\newblock 带形状参数的B$\acute{e}$zier曲线[J].
+\newblock 中国图象图形学报, 2006, 11(2).
+
+\bibitem[{严兰兰,宋来忠}(2008)]{yan2}
+\textsc{{严兰兰,宋来忠}}.
+\newblock 带两个形状参数的B$\acute{e}$zier曲线[J].
+\newblock 工程图学学报, 2008, (3).
+
+\bibitem[{严兰兰,韩旭里}(2014)]{yan3}
+\textsc{{严兰兰,韩旭里}}.
+\newblock 一种新的曲线曲面[J].
+\newblock 图学学报, 2014, 35(4).
+
+\bibitem[{张贵仓,师利红}(2010)]{zhang1}
+\textsc{{张贵仓,师利红}}.
+\newblock 带多个形状参数的B$\acute{e}$zier曲线[J].
+\newblock 西北师范大学学报(自然科学版), 2010, 46(4).
+
+\bibitem[{张贵仓,赵菲,蕙海英}(2014)]{zhang2}
+\textsc{{张贵仓,赵菲,蕙海英}}.
+\newblock 带3个形状参数的四次B$\acute{e}$zier曲线[J].
+\newblock 西北师范大学学报(自然科学版), 2014, 50(2).
+
+\bibitem[{程黄和,曾晓明}(2006)]{cheng1}
+\textsc{{程黄和,曾晓明}}.
+\newblock 带形状参数的B$\acute{e}$zier曲线[J].
+\newblock 厦门大学学报(自然科学版), 2006, 45(3).
+
+\bibitem[{X.A.Han,Y.C.Ma,X.L.Huang}(2008)]{xi1}
+\textsc{{X.A.Han,Y.C.Ma,X.L.Huang}}.
+\newblock A novel generalization of B$\acute{e}$zier curve and surface[J].
+\newblock Journal of computational and applied mathematics, 2008, 217:180--193.
+
+\bibitem[吴晓勤(2005)]{wu1}
+\textsc{吴晓勤}.
+\newblock 带形状参数的五次$B\acute{e}ier$曲线[J].
+\newblock 第二届全国几何设计与计算学术会议论文集, 2005: 97--100.
+
+\bibitem[{L.Q.Yang,X.M.Zeng}(2008)]{zeng}
+\textsc{{L.Q.Yang,X.M.Zeng}}.
+\newblock B$\acute{e}$zier curves and surfaces with shape parameters.[J].
+\newblock International Journal of Computer Mathematics., 2008.
+
+\bibitem[{J.Chen,G.J.Wang}(2011)]{wang2}
+\textsc{{J.Chen,G.J.Wang}}.
+\newblock A new type of the generalized B$\acute{e}$zier curves[J].
+\newblock Applied Mathematics,A journal of Chinese Universities, 2011,
+  26(1):47--56.
+
+\bibitem[范飞龙(2012)]{fan}
+\textsc{范飞龙}.
+\newblock
+\newblock 基于$S-\lambda$概率分布的曲线曲面造型方法[D].厦门大学, 2012.
+
+\bibitem[{王青芳,陈晓彦,柏凯,任淼}(2015)]{wang3}
+\textsc{{王青芳,陈晓彦,柏凯,任淼}}.
+\newblock 一类新的拟Bernstein-B$\acute{e}$zier曲线[J].
+\newblock 大学数学, 2015, 31(2).
+
+\bibitem[{C.Y.Wang}(1981)]{l_wang}
+\textsc{{C.Y.Wang}}.
+\newblock Shape classification of the parametric cubic curve and parametric
+  B-spline cubic curve[J].
+\newblock Computer Aided Design, 1981, 13(4):199--206.
+
+\bibitem[{M.C.Stone,T.D.DeRose}(1989)]{l_stone}
+\textsc{{M.C.Stone,T.D.DeRose}}.
+\newblock A geometric characterization of parametric cubic curves[J].
+\newblock ACM Transactions on Graphics, 1989, 8(3):147--163.
+
+\bibitem[{Q Yang,G Wang}(2004)]{l_yang}
+\textsc{{Q Yang,G Wang}}.
+\newblock Inflection points and singularities on C-curves[J].
+\newblock Computer Aided Geometric Design, 2004, 21(2):207--213.
+
+\bibitem[{B.Su,D.Liu}(1983)]{l_su}
+\textsc{{B.Su,D.Liu}}.
+\newblock An affine invariant and its application in computational geometry[J].
+\newblock Scientia Sinica Series A, 1983, 24(3):259--267.
+
+\bibitem[{J.Cao,G.Z.Wang}(2007)]{l_cao}
+\textsc{{J.Cao,G.Z.Wang}}.
+\newblock Relation among C-curve characterization diagrams[J].
+\newblock Journal of Zhejiang University Science A, 2007, 8(10):1663--1670.
+
+\bibitem[{J.W.Zhang,Frank-L.Krauseb,H.Y.Zhang}(2005)]{l_zhang}
+\textsc{{J.W.Zhang,Frank-L.Krauseb,H.Y.Zhang}}.
+\newblock Unifying C-curves and H-curves by extending the calculation to
+  complex numbers[J].
+\newblock Computer Aided Geometric Design, 2005, 22(9):865--883.
+
+\bibitem[J.W.Zhang(1996)]{l_zhang2}
+\textsc{J.W.Zhang}.
+\newblock C-curves:An extension of cubic curves[J].
+\newblock Computer Aided Geometric Design, 1996, 13:199--217.
+
+\bibitem[X.J.Duan(2009)]{l_duan}
+\textsc{X.J.Duan}.
+\newblock
+\newblock Research on Planar Cubic {PH} Spline and Inflection points and
+  Singularities on F-curve[D].Zhejiang University, 2009.
+
+\bibitem[J.Monterde(2001)]{l_monrerde}
+\textsc{J.Monterde}.
+\newblock Singularities of rational B$\acute{e}$zier curves[J].
+\newblock Computer Aided Geometric Design, 2001, 18(8):805--816.
+
+\bibitem[M.Sakai(1999)]{l_sakai}
+\textsc{M.Sakai}.
+\newblock Inflection points and singularities on planar rational cubic
+  segments[J].
+\newblock Computer Aided Geometric Design, 1999, 16(3):149--156.
+
+\bibitem[Juh$\acute{a}$sz(2006)]{l_ju}
+\textsc{Imre Juh$\acute{a}$sz}.
+\newblock On the singularity of a class of parametric curves[J].
+\newblock Computer Aided Geometric Design, 2006, 23(2):146--156.
+
+\end{thebibliography}

@@ -105,15 +105,17 @@
 %目录
 \clearpage      %页码显示正确
 \phantomsection %实现正确跳转
+\setcounter{tocdepth}{3}%将目录深度设到subsection，改为2即是section
 \tableofcontents % 生成中文目录
-\addcontentsline{toc}{chapter}{\hei目录}  
+\addcontentsline{toc}{chapter}{\hei目录}
  \addcontentsline{toe}{chapter}{\hei  Chinese Contents}
 \cleardoublepage
 %英文目录
 \clearpage      %页码显示正确
 \phantomsection %实现正确跳转
+\setcounter{tocdepth}{3}%将目录深度设到subsection，改为2即是section
 \tableofengcontents % 生成英文目录
-\addcontentsline{toe}{chapter}{\hei  English Contents} 
+\addcontentsline{toe}{chapter}{\hei  English Contents}
 \cleardoublepage
 %表格目录
 %\listoftables
@@ -186,7 +188,7 @@
 \cleardoublepage
 
 %发表的文章列表
-%\include{appendix/publications}
+\include{appendix/publications}
 %致谢
 \include{appendix/acknowledgements}
 %\cleardoublepage

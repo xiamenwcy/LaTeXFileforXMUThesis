@@ -1,0 +1,29 @@
+\ttl@change@i {\@ne }{chapter}{0.0em}{\hei \bf \sihao \vspace {0.5em}}{\contentslabel {0.0em}}{\hspace *{-0.0em}}{\titlerule *[5pt]{.}\contentspage }\relax 
+\ttl@change@v {chapter}{}{}{}\relax 
+\ttl@change@i {\@ne }{section}{1.16cm}{\hei \bf \xiaosi }{\contentslabel {1.8em}}{\hspace *{-1.8em}}{\titlerule *[5pt]{.}\contentspage }\relax 
+\ttl@change@v {section}{}{}{}\relax 
+\ttl@change@i {\@ne }{subsection}{2.00cm}{\song \xiaosi }{\contentslabel {2.7em}}{\hspace *{-2.7em}}{\titlerule *[5pt]{.}\contentspage }\relax 
+\ttl@change@v {subsection}{}{}{}\relax 
+\ttl@change@i {\@ne }{subsubsection}{2.86cm}{\song \xiaosi }{\contentslabel {3.4em}}{\hspace *{-3.4em}}{\titlerule *[5pt]{.}\contentspage }\relax 
+\ttl@change@v {subsubsection}{}{}{}\relax 
+\contentsline {chapter}{\CJKfamily {hei}摘要}{I}{section*.1}
+\contentsline {chapter}{\CJKfamily {hei}Abstract}{II}{section*.2}
+\contentsline {chapter}{\CJKfamily {hei}目录}{IV}{chapter*.4}
+\contentsline {chapter}{Contents\markboth {\MakeUppercase {Contents}}{\MakeUppercase {Contents}}}{V}{section*.5}
+\contentsline {chapter}{\numberline {}第一章\hspace {0.8em}绪论}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}研究背景}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}本文主要内容}{1}{section.1.2}
+\contentsline {chapter}{\numberline {}第二章\hspace {0.8em}定理环境介绍}{2}{chapter.2}
+\contentsline {section}{\numberline {2.1}使用说明}{2}{section.2.1}
+\contentsline {section}{\numberline {2.2}节标题1}{2}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}$C$类型三次F-B$\mathaccentV {acute}013{e}$zier曲线}{3}{subsection.2.2.1}
+\contentsline {chapter}{\numberline {}第三章\hspace {0.8em}插图}{4}{chapter.3}
+\contentsline {section}{\numberline {3.1}多幅图片的生成方式}{4}{section.3.1}
+\contentsline {chapter}{\numberline {}第四章\hspace {0.8em}其他}{8}{chapter.4}
+\contentsline {section}{\numberline {4.1}引用}{8}{section.4.1}
+\contentsline {section}{\numberline {4.2}参考文献}{8}{section.4.2}
+\contentsline {chapter}{\numberline {}第五章\hspace {0.8em}总结与展望}{9}{chapter.5}
+\contentsline {chapter}{\CJKfamily {hei}参考文献}{10}{section*.6}
+\contentsline {chapter}{作者在读研期间完成的文章目录}{12}{chapter*.8}
+\contentsline {chapter}{\CJKfamily {hei}致谢}{13}{chapter*.9}
+\contentsfinish 
